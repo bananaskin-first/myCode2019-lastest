@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var sum=0;
+    for( var i = 10000; i<100000; i++){
+var ge = i%10;
+
+var shi = parseInt(i % 100 / 10);
+
+var qian = parseInt(i % 10000 /1000);
+var wan = parseInt(i / 10000);
+//五位数中，对称的数称为回文数，找出所有的回文数。 如: 12321
+if(ge == wan && qian == shi){
+
+
+    sum = i;
+document.writeln(sum );
+
+}
+    }
+    </script>
+
+
+</body>
+</html>

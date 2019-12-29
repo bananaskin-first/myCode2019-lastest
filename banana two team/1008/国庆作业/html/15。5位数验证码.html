@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="生成" id="btn">
+    <div id="box">
+
+    </div>
+ <script>
+ var btn = document.getElementById('btn');
+ var box = document.getElementById('box');
+
+ btn.onclick = function(){
+     var sum = parseInt(Math.random()*(90000+1))+10000;
+     box.innerHTML = sum;
+ }
+ 
+ </script>
+</body>
+</html>

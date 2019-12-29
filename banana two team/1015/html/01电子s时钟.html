@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        p {
+
+            display: inline-block;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+
+    </div>
+
+    <script>
+        //1.电子时钟：用图片展示  xxxx-xx-xx xx：xx：xx  补零，走动起来
+        var box = document.getElementById('box');
+
+        function Tod(num) {
+            if (num < 10) {
+                return '0' + num;
+            }
+            else {
+                return '' + num;
+            }
+        }
+        function gettime() {
+            var time = new Date();
+            // console.log(time);
+            var year = time.getFullYear();
+            // console.log(year);
+            var month = time.getMonth();
+            var day = time.getDay();
+            var hour = time.getHours();
+            var min = time.getMinutes();
+            var sec = time.getSeconds();
+
+            var str = Tod(year) + Tod(month) + Tod(day) + Tod(hour) + Tod(min) + Tod(sec);
+            console.log(str);
+            var imgs = '';
+            var sum = 0;
+            for (var i in str) {
+                imgs += `<img src="../img/${str[i]}.png">`
+                sum++
+                if (sum == 4) {
+                    imgs += '<p>-</p>';
+                }
+                else if (sum == 6) {
+                    imgs += '<p>-</p>';
+                }
+                else if (sum == 8) {
+                    imgs += `<br>`
+                }
+                else if (sum == 10) {
+                    imgs += `:`
+                }
+                else if (sum == 12) {
+                    imgs += `:`
+                }
+
+            }
+            box.innerHTML = imgs;
+        }
+
+        gettime();
+        setInterval(gettime, 1000);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    .box1 {
+        width: 100%;
+        height: 30px;
+        background: orange;
+        position: absolute;
+        bottom: -40px;
+
+
+    }
+
+    .bo1 {
+
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    .box1 span {
+
+        display: block;
+        float: left;
+        width: 50%;
+        text-align: center;
+        line-height: 30px;
+
+    }
+
+    .imp {
+        width: 80%;
+        margin: 10px auto;
+        display: block;
+
+
+    }
+
+
+
+    .two {
+        width: 250px;
+        height: 320px;
+        border: 1px solid gray;
+        float: left;
+        position: relative;
+
+
+    }
+
+    .two:hover {
+        border: 1px solid orange;
+    }
+
+    .two:hover .name {
+        text-decoration: underline;
+    }
+
+   
+
+    .price {
+        color: red;
+        margin-top: 10px;
+    }
+
+    .name {
+        font-size: 12px;
+    }
+
+
+
+    .shopName {
+        font-size: 12px;
+        color: gray;
+        text-decoration: underline;
+        float: left;
+    }
+
+    .payNum {
+        font-size: 12px;
+        color: gray;
+        float: right;
+    }
+</style>
+
+<body>
+
+    <ul id="box">
+
+        <!-- <li class="two">
+            <img class="imp"
+                src="https://img.alicdn.com/imgextra/i3/34418892/O1CN01bmSs8x2FYaNFuAvhT_!!0-saturn_solar.jpg_220x220.jpg_.webp"
+                alt="">
+            <p class="price">￥79.00</p>
+            <p class="name">
+                t恤女大码牛仔裤真丝汉服中老年女装棉麻连</p>
+            <p>
+                <span class="shopName">tb6494683_2012</span><span class="payNum">4人付款</span></p>
+
+        </li> -->
+        <!-- <li class="two"></li>
+        <li class="two"></li>
+        <li class="two"></li> -->
+    </ul>
+
+
+    <script>
+        var box = document.getElementById('box');
+        var two = box.getElementsByClassName('two')[0];
+        var str = '';
+        var data = [
+            {
+                img: `https://img.alicdn.com/imgextra/i3/34418892/O1CN01bmSs8x2FYaNFuAvhT_!!0-saturn_solar.jpg_220x220.jpg_.webp`,
+                name: `t恤女大码牛仔裤真丝汉服中老年`,
+                price: `$79.00`,
+                shopName: `tb6494683_2012`,
+                payNum: `>4人付款`
+
+            }, {
+                img: `https://img.alicdn.com/imgextra/i4/116002953/O1CN01f8flvk1XgW8dU0PtS_!!0-saturn_solar.jpg_220x220.jpg_.webp`,
+                name: `日系少女t恤蕾丝衫/雪纺衫旗袍衬衫女夏`,
+                price: `$79.00`,
+                shopName: `dreamqi祺靓店`,
+                payNum: `>5人付款`
+            }, {
+                img: `https://img.alicdn.com/imgextra/i3/14435698/O1CN01AvaHUs1rxjKpM2X4K_!!0-saturn_solar.jpg_220x220.jpg_.webp`,
+                name: `2019春夏女装春装真丝衬衫t恤女`,
+                price: `$79.00`,
+                shopName: `8可可里小姐8`,
+                payNum: `>5人付款`
+            }
+        ]
+        for (var i in data) {
+            //data[i]
+            //字符串模板
+            str += `  
+         
+            <li class="two">
+        
+             <div class="bo1">
+                <img class="imp"
+                src="${data[i].img}"
+                alt="">
+                <div class="box1">
+            <span>相同</span><span>经典</span>
+            </div>
+             </div>
+          
+            <p class="price">${data[i].price}</p>
+            <p class="name">
+               ${data[i].name}</p>
+                <p>
+                    <span class="shopName">${data[i].shopName}</span><span class="payNum"${data[i].payNum}</span></p>
+
+        </li>`;
+        }
+        box.innerHTML = str;
+
+
+
+        // box.innerHTML = str;
+        // var str = `[{"url":"https://img.alicdn.com/imgextra/i3/34418892/O1CN01bmSs8x2FYaNFuAvhT_!!0-saturn_solar.jpg_220x220.jpg_.webp","price":"<span class=\"pricedetail\">¥<strong> 79.00 </strong></span><span class=\"postalicon\">包邮</span>","title":"t恤女大码牛仔裤真丝汉服中老年<font class=\"hl\">女装</font>棉麻连","shopName":"<span class=\"shopNick\">tb6494683_2012</span><span class=\"payNum\">4人付款</span>","dis":"<span class=\"active dsr-info-tgr\"><span class=\"icon-btn-dsr\">如实描述:</span><span class=\"dsr-info-num\">4.4</span><span class=\"dropdown-tgr-arrow\"></span></span><ul class=\"dsr-info-list\"><li><span class=\"lessthan\">如实描述:<b>4.4</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"lessthan\">服务态度:<b>4.5</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"lessthan\">发货速度:<b>4.6</b></span><span class=\"listup-tgr-arrow\"></span></li></ul>"},{"url":"https://img.alicdn.com/imgextra/i4/116002953/O1CN01f8flvk1XgW8dU0PtS_!!0-saturn_solar.jpg_220x220.jpg_.webp","price":"<span class=\"pricedetail\">¥<strong> 79.00 </strong></span><span class=\"postalicon\">包邮</span>","title":"日系少女t恤蕾丝衫/雪纺衫旗袍衬衫女夏chic","shopName":"<span class=\"shopNick\">dreamqi祺靓店</span><span class=\"payNum\">5人付款</span>","dis":"<span class=\"active dsr-info-tgr\"><span class=\"icon-btn-dsr\">如实描述:</span><span class=\"dsr-info-num\">4.8</span><span class=\"dropdown-tgr-arrow\"></span></span><ul class=\"dsr-info-list\"><li><span class=\"morethan\">如实描述:<b>4.8</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">服务态度:<b>4.8</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">发货速度:<b>4.8</b></span><span class=\"listup-tgr-arrow\"></span></li></ul>"},{"url":"https://img.alicdn.com/imgextra/i3/432460169/O1CN01UW6FGx1D7RUjp6ESw_!!0-saturn_solar.jpg_220x220.jpg_.webp","price":"<span class=\"pricedetail\">¥<strong> 79.00 </strong></span><span class=\"postalicon\">包邮</span>","title":"2019春夏<font class=\"hl\">女装</font>春装真丝衬衫t恤女","shopName":"<span class=\"shopNick\">8可可里小姐8</span><span class=\"payNum\">5人付款</span>","dis":"<span class=\"active dsr-info-tgr\"><span class=\"icon-btn-dsr\">如实描述:</span><span class=\"dsr-info-num\">4.8</span><span class=\"dropdown-tgr-arrow\"></span></span><ul class=\"dsr-info-list\"><li><span class=\"morethan\">如实描述:<b>4.8</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">服务态度:<b>4.9</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">发货速度:<b>4.9</b></span><span class=\"listup-tgr-arrow\"></span></li></ul>"},{"url":"https://img.alicdn.com/imgextra/i3/14435698/O1CN01AvaHUs1rxjKpM2X4K_!!0-saturn_solar.jpg_220x220.jpg_.webp","price":"<span class=\"pricedetail\">¥<strong> 292.70 </strong></span>","title":"秋季薄款V领长袖打底针织衫百搭套头毛衣女","shopName":"<span class=\"shopNick\">roeyshouse旗舰店</span><span class=\"payNum\">1222人付款</span>","dis":"<span class=\"active dsr-info-tgr\"><span class=\"icon-btn-dsr\">如实描述:</span><span class=\"dsr-info-num\">4.9</span><span class=\"dropdown-tgr-arrow\"></span></span><ul class=\"dsr-info-list\"><li><span class=\"morethan\">如实描述:<b>4.9</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">服务态度:<b>4.9</b></span><span class=\"listup-tgr-arrow\"></span></li><li><span class=\"morethan\">发货速度:<b>4.9</b></span><span class=\"listup-tgr-arrow\"></span></li></ul>"}]`;
+
+        // var box = document.getElementsByClassName('view')[0];
+        // var divs = box.getElementsByClassName('item');
+        // var list = [];
+        // for (var i = 0; i < divs.length; i++) {
+
+        //     var good = {};
+        //     var imgurl = divs[i].getElementsByTagName('img')[0];
+        //     var price = divs[i].getElementsByClassName('price')[0];
+        //     var title = divs[i].getElementsByClassName('title')[0];
+        //     var shopName = divs[i].getElementsByClassName('shopName')[0];
+        //     var dis = divs[i].getElementsByClassName('dsr-info')[0];
+
+        //     good.url = imgurl.src;
+        //     good.price = price.inner;
+        //     good.title = title.innerText;
+        //     good.shopName = shopName.innerHTML;
+        //     good.dis = dis.innerHTML;
+        //     list.push(good);
+
+        // }
+
+    </script>
+</body>
+
+</html>

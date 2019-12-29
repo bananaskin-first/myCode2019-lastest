@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //     3.给你一个数组，拼接成指定的格式：
+
+        // var arr = [1,2,3,4,5];
+        // var arr2 = ['a','b','c','d','e'];
+
+        // 得到：
+
+        // var str = 'a=1&b=2&c=3&d=4&e=5';
+
+        var arr = [1, 2, 3, 4, 5];
+        var arr2 = ['a', 'b', 'c', 'd', 'e'];
+        var obj = {};
+        arr2.forEach(function (item, index) {
+            console.log(item);
+            console.log(arr[index])
+            obj[item] = arr[index];
+
+        })
+        console.log(obj)//{a: 1, b: 2, c: 3, d: 4, e: 5}
+        var arr1 = [];
+        for (key in obj) {
+            arr1.push(key + '=' + obj[key]);
+        }
+        console.log(arr1);
+        arr1 = arr1.join('&');
+        console.log(arr1);
+
+    </script>
+</body>
+
+</html>

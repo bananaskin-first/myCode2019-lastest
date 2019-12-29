@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 500px;
+            height: 300px;
+            background: gray;
+            margin: 200px auto;
+            position: relative;
+        }
+
+
+
+        .imglist li {
+            width: 500px;
+            height: 300px;
+            background: green;
+            position: absolute;
+            top: 0;
+            font-size: 100px;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        .imglist li:nth-child(1) {
+            z-index: 1;
+        }
+
+        .imglist li:nth-child(2) {
+            background: yellow;
+        }
+
+        .imglist li:nth-child(3) {
+            background: rgb(240, 16, 154);
+        }
+
+        .imglist li:nth-child(4) {
+            background: rgb(250, 7, 7);
+        }
+
+        .imglist li:nth-child(5) {
+            background: rgb(13, 173, 236);
+        }
+
+        .imglist li:nth-child(6) {
+            background: rgb(125, 5, 155);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <ul class="imglist">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+
+    <script src="../js/myquery.js"></script>
+
+    <script>
+        let box = document.querySelector('#box');
+        let lists = document.querySelectorAll('.imglist li');
+
+        console.log(lists);
+        let zIndex = 2;
+        let now = 0;
+        //改变层级数值来实现切换图片
+        /*
+        我需要先知道图片对应的索引
+        传统做法
+        */
+        var timer = setInterval(autoplay, 500);
+        function autoplay() {
+            lists[now].style.zIndex = zIndex++;
+            now++;
+            if (now > lists.length - 1) {
+                now = 0;
+                lists.forEach(item => {
+                    item.style.zIndex = 0;
+                });
+
+
+                zIndex = 2;
+            }
+            console.log(zIndex);
+        }
+
+    </script>
+</body>
+
+</html>

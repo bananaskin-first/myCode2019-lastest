@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="list">
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>雪梨</li>
+    </ul>
+    <ul>
+        <li>苹果2</li>
+        <li>香蕉2</li>
+        <li>雪梨2</li>
+    </ul>
+
+
+    <script>
+        //1.封装函数：查找首尾节点和兄弟节点，兼容函数封装；4个函数，写到自己库里面
+        // var list = document.getElementById('list');
+        var list = document.querySelector('#list');
+        var sum = list.firstElementChild;
+        console.log(sum);
+
+        var sum1 = list.lastElementChild;
+        console.log(sum1);
+
+        var sum2 = list.nextElementSibling.firstElementChild;
+        console.log(sum2);
+
+    </script>
+</body>
+
+</html>

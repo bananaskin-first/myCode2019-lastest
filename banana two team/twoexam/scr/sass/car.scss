@@ -1,0 +1,128 @@
+.carMain{
+    width: 1200px;
+    margin: auto;
+    .orderlist{
+        display: flex;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        li{
+            margin: 0px 50px;
+        }
+        li:nth-child(2){
+            width: 160px;
+        }
+    }
+
+  
+
+    .ordercontent{
+   margin-bottom: 40px;
+        .allcheck{
+            margin-left: 50px;
+            margin-bottom: 10px;
+            span{
+                color: red;
+            }
+                }
+      .orderLists{
+          display: flex;
+          padding-left: 60px;
+          border: 1px solid #ccc;
+          
+          
+          li{
+              height: 80px;
+        
+          }
+
+          .listimg{
+              padding: 20px 0px;
+              width: 90px;
+
+          }
+          .listtext{
+              width: 250px;
+              padding: 30px 0px;
+          }
+          .listprice{
+              padding:50px 20px;
+              font-size: 19px;
+          }
+          .listamount{
+              display: flex;
+              padding: 50px;
+              a{   
+                  width: 30px;
+                  height: 20px;
+                  display: block;
+                  border: 1px solid;
+                  font-size: 20px;
+                  text-align: center;
+                  line-height: 20px;
+              }
+              input{
+                  border: 1px solid ;
+                  width: 30px;
+                  height: 20px;
+              }
+          }
+          .listtotal{
+              padding: 50px 60px 0px 0px;
+              color: red;
+              font-size: 18px;
+          }
+
+          .del{
+ padding-top: 50px;
+          }
+
+      }
+    }
+}
+
+
+.barwrapper{
+    width: 1200px;
+    height: 50px;
+    background: gray;
+    position: fixed;
+    bottom: 0px;
+    left: 112px;
+
+    .bar-right{
+        float: right;
+        display: flex;
+        align-items: center;
+        li{
+            margin: 0px 5px;
+        }
+
+        .piece{
+            width: 110px;
+            font-size: 18px;
+            span{
+                color: red;
+            }
+        }
+        .totalMoney{
+            width: 117px;
+            font-size: 18px;
+            span{
+                color: red;
+            }
+        }
+        .calBtn{
+            width: 120px;
+            background: red;
+            text-align: center;
+            
+           a{
+               color: white;
+               font-size: 24px;
+               line-height: 50px;
+               display: block;
+           }
+
+        }
+    }
+}

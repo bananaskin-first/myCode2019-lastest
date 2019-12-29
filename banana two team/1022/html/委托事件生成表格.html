@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            padding: 50px;
+        }
+
+        table {
+            width: 100%;
+
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>委托生成表格</h1>
+    <span>行：</span><input type="text" name="" id="row">
+    <span>列：</span><input type="text" name="" id="col">
+    <input type="button" name="" id="btn" value="生成表格">
+    <div id="box">
+        <table>
+            <!-- <tr>
+                <td></td>
+            </tr> -->
+        </table>
+    </div>
+
+    <script>
+        var row = document.querySelector('#row');
+        var col = document.querySelector('#col');
+        var btn = document.querySelector('#btn');
+        var box = document.querySelector('#box table');
+
+        btn.onclick = function () {
+            var rowNum = row.value.trim();
+            var colNum = col.value.trim();
+            if (colNum && rowNum) {
+                for (var i = 0; i < rowNum; i++) {
+                    tr = box.insertRow(i);
+                    //在第一行插入
+                    var firstId = tr.insertCell(0);
+                    firstId.innerHTML = i;
+                    for (var j = 1; j < colNum; j++) {
+                        td = tr.insertCell(j);
+                        td.innerHTML = '单元格';
+                    }
+                    var lastID = tr.insertCell(j);
+                    lastID.innerHTML = '<a class="dels" href="javascript:;">删除</a>&nbsp;&nbsp;<a class="clones" href="###">复制</a>'
+
+                }
+            }
+            //利用事件委托来实现删除和复制
+
+            var tbody = document.querySelector('#box table tbody');
+            // console.log(tbody);
+            box.onclick = function (ev) {
+                //删除功能
+                if (ev.target.className == 'dels') {
+                    tbody.removeChild(ev.target.parentNode.parentNode);
+                }
+                //parentNode找到父节点
+                //removeChild移除节点
+                //复制功能.cloneNode(true)
+                if (ev.target.className == 'clones') {
+                    var strd = (ev.target.parentNode.parentNode).cloneNode(true);
+                    tbody.appendChild(strd);
+                    //appendChild向节点的子节点列表的末尾添加新的子节点。
+                }
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 3000px;
+        }
+
+        #imp {
+            width: 100px;
+            height: 100px;
+            display: none;
+
+        }
+
+        .active {
+            position: fixed;
+            bottom: 200px;
+            right: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <div>
+
+        </div>
+        <img id="imp" src="../img/2323g.gif" alt="">
+    </div>
+    <script>
+        /*
+        1、小火箭返回顶部的思路，首先把样式和结构写好，
+        2、小火箭固定是用户滑动滑条到达一定值的时候再添加样式让他显示出来；
+        3.先要获取window的滑动值，设置一个值作为判断；
+        对小火箭添加点击事件，让他用scrollto(0,0)，再用定时器运行 程序（每次减去scrollto中Y值）从而
+        得到视觉上的移动效果。
+        */
+        // (function () {
+
+        //     var box = document.getElementById('box');
+        //     var imp = document.getElementById('imp');
+        //        //少了滑轮事件触发不了
+        //     var ih = window.scrollY;//获取滑动的距离
+        //     if (ih >= 400) {
+        //         imp.style.display = 'block';
+        //         imp.className = 'active';
+        //     }
+        //     else {
+        //         imp.style.display = 'none';
+        //     }
+        //     console.log(ih);
+        // })();
+
+
+        (function () {
+
+            var box = document.getElementById('box');
+            var imp = document.getElementById('imp');
+            //需要加滑动事件
+            window.onscroll = function () {
+                var ih = window.scrollY;//获取滑动的距离
+                if (ih >= 400) {
+                    imp.style.display = 'block';
+                    imp.className = 'active';
+                }
+                else {
+                    imp.style.display = 'none';
+                }
+                console.log(ih);
+            }
+            imp.onclick = function () {
+                //绑定点击事件，返回顶部;
+                //缓慢回顶部，加定时器;
+                var timeout = setInterval(function () {
+                    //获取当前window top值
+
+                    var ih = window.scrollY;
+                    //关闭定时器
+                    var vis = ih / 30;
+                    if (ih <= 0) {
+                        clearInterval(timeout);
+                    }
+
+                    window.scroll(0, ih - vis);
+                });
+
+            }
+
+        })();
+
+
+    </script>
+</body>
+
+</html>

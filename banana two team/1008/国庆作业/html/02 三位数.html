@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="tex">
+    <input type="button" value="结果" id="btn">
+    <div id="box">
+
+    </div>
+
+    <script>
+    var tex = document.getElementById('tex');
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+
+    btn.onclick = function(){
+        var val = tex.value *1;
+        console.log(val);
+     
+        function ji(val){
+            var bai = parseInt(val / 100 );
+             console.log(bai);
+            var shi = parseInt( val % 100 /10);
+            var ge = val % 10;
+            box.innerHTML = '百位:' + bai +'<br> ' + '十位：' + shi + '<br>'
+            + '个位：' + ge;
+        }
+        ji(val)
+    }
+
+
+    
+    </script>
+
+
+
+</body>
+</html>

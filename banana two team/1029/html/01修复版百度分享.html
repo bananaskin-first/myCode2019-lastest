@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 400px;
+            background: gray;
+            position: fixed;
+            right: -200px;
+            top: 200px;
+        }
+
+        #box1 {
+            width: 50px;
+            height: 100px;
+            background: blue;
+            writing-mode: vertical-lr;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            top: 150px;
+            right: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <div id="box1">
+            百度分享
+        </div>
+
+    </div>
+
+    <script src="../js/myquery.js"></script>
+    <script src="../js/baiduchajian.js"></script>
+    <script>
+        (function () {
+
+            baidu({
+                ele: '#box',//必填
+                iw: 200,//宽度
+                ih: 400,//高度
+
+            });
+        })();
+
+
+    </script>
+</body>
+
+</html>

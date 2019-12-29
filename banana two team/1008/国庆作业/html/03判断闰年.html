@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>判断闰年</h1>
+    <input type="text" name="" id="tex">
+    <input type="button" name="" id="btn" value="判断">
+    <div id="box">
+
+    </div>
+
+<script>
+var tex = document.getElementById('tex');
+var btn = document.getElementById('btn');
+var box = document.getElementById('box');
+
+btn.onclick = function (){
+    var val = tex.value;
+    run(val);
+   
+    function run(val) {
+        
+     if ( val %4 ==0 && val % 100 != 0 || val % 400 == 0){
+         box.innerHTML = val + '是闰年';
+     }
+     else{
+         box.innerHTML = val + '不是闰年';
+     }
+    }
+}
+
+</script>
+
+
+</body>
+</html>

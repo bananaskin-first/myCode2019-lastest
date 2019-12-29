@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 80px;
+            height: 200px;
+            border: 1px solid;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(71, 71, 236);
+            position: absolute;
+            right: 0px;
+            top: 200px;
+        }
+
+        #box p {
+            writing-mode: tb-rl;
+            color: white;
+        }
+
+        #box2 {
+            width: 200px;
+            height: 300px;
+            background: rgba(217, 255, 4, 0.986);
+            position: fixed;
+            top: 30%;
+            right: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p>百度分享
+        </p>
+    </div>
+    <div id="box2">
+
+    </div>
+    <script src="../js/myquery.js"></script>
+    <script>
+        //先实现效果再封装
+        let box = document.querySelector("#box");
+        let box2 = document.querySelector('#box2');
+
+        let iw = box2.offsetWidth;
+        //   console.log(iw); 200
+
+        //绑定事件
+        box.onmouseover = () => {
+
+            startMove(box, { right: 200 });
+            startMove(box2, { right: 0 });
+        }
+        document.onmouseout = () => {
+
+            startMove(box, { right: 0 });
+            startMove(box2, { right: -200 });
+        }
+
+//布局存在问题
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 100px;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        #detail {
+            width: 100px;
+            height: 50px;
+            background: yellow;
+            position: relative;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>显示窗口</h1>
+    <div id="box">
+        <a href="" title="干不动">小马的人</a>
+        <a href="" title="累了">小尼姑同学</a>
+        <a href="" title="难打">上帝上脚</a>
+    </div>
+    <div id="detail">
+
+    </div>
+    <script>
+        /*
+        移入移除 隐藏显示框； onmouseover onmouseout onmousemove
+        把title的内容显示在div detail里,鼠标移动框要跟着动， event 事件里的 pageY pageX；
+        通过定位来实现功能
+        */
+        var detail = document.querySelector('#detail');
+        var box = document.querySelector('#box');
+        var btns = box.querySelectorAll('a');//集合
+        for (var i = 0; i < btns.length; i++) {
+            //给每个btns 绑定鼠标移入和移出事件。
+            var old = ''
+            btns[i].onmouseover = function () {
+                detail.style.display = 'block';
+                //显示后还要把内容显示在里面
+                detail.innerHTML = this.title;
+                //消除默认样式
+                old = this.title;
+                this.title = '';
+            }
+            btns[i].onmouseout = function () {
+
+                detail.style.display = 'none';
+                this.title = old;
+            }
+            //光标移动的时候板块要跟着一起移动；
+            //其实就是改变postion 定位的位置，而onmousemove是实时执行，所以可以一直读取page的值。page 是 事件源到浏览器可视窗口的距离
+            btns[i].onmousemove = function (event) {
+                // console.log(event.pageX, event.pageY);
+                detail.style.top = event.pageY - 180 + 'px';
+                detail.style.left = event.pageX + 10 + 'px';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

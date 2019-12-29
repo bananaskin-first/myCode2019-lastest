@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="val1">
+    <input type="text" name="" id="val2">
+    <input type="button" name="" id="btn" value="比较">
+  <div id="box"></div>
+    <script>
+        
+// 4.输入两个数，求两个数的最大公约数
+
+    var tex = document.getElementById('val1');
+    var tex2 = document.getElementById('val2');
+    var btn = document.getElementById('btn');
+   var box = document.getElementById('box');
+    btn.onclick = function(){
+         var tex = val1.value;
+       var tex2 = val2.value;
+   
+       var sum = 1;
+    if(tex < tex2){
+        sum *= tex;
+      while(sum>0){
+          if(tex % sum ==0 &&  tex2 % sum ==0){
+              box.innerHTML= sum;
+              break;
+          }
+          sum --;
+      }
+
+    }
+    else {
+        sum *= tex2;
+        while(sum>0){
+          if(tex % sum ==0 && tex2 %sum ==0){
+              box.innerHTML= sum;
+              break;
+          }
+          sum --;
+      }
+
+    }
+
+   
+
+       
+
+
+    }
+
+    </script>
+</body>
+</html>

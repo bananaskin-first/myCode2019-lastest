@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    #box {
+        width: 600px;
+        border-spacing: 0px;
+        border: 1px solid black;
+        margin: 100px auto;
+
+    }
+
+    .one {
+        border: 1px solid black;
+    }
+
+    .two {
+        width: 50px;
+        height: 40px;
+        border: 1px solid black;
+
+    }
+
+    .two:nth-child(2n) {
+        background: pink;
+    }
+
+    .two:nth-child(2n-1) {
+        background: #58bc58;
+    }
+
+    td {
+        width: 50px;
+        height: 30px;
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <span>学号:</span> <input type="text" name="" id="hao1">
+    <span>语文:</span> <input type="text" name="" id="yu1">
+    <span>数学:</span><input type="text" name="" id="shu1">
+    <span>英语:</span><input type="text" name="" id="ying1">
+    <input type="button" name="" id="btn" value="插入排序">
+    <table id="box">
+        <thead>
+            <tr>
+                <th class="one">学号</th>
+                <th class="one">语文</th>
+                <th class="one">数学</th>
+                <th class="one">英语</th>
+                <th class="one">总成绩</th>
+                <th class="one">排名</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+    <script>
+        var box = document.getElementById('box');
+        var tb = document.getElementById('tb');
+        var btn = document.getElementById('btn');
+        var hao1 = document.getElementById('hao1')
+        var yu1 = document.getElementById('yu1')
+        var shu1 = document.getElementById('shu1')
+        var ying1 = document.getElementById('ying1')
+
+        var score = [{
+            sno: 1,
+            chinese: 107,
+            math: 62,
+            english: 118
+        }, {
+            sno: 2,
+            chinese: 89,
+            math: 78,
+            english: 120
+        }, {
+            sno: 3,
+            chinese: 86,
+            math: 64,
+            english: 80
+        }, {
+            sno: 4,
+            chinese: 78,
+            math: 99,
+            english: 91
+        }, {
+            sno: 5,
+            chinese: 107.5,
+            math: 97,
+            english: 70
+        }, {
+            sno: 6,
+            chinese: 112,
+            math: 61,
+            english: 92
+        }, {
+            sno: 7,
+            chinese: 101,
+            math: 79,
+            english: 104
+        }, {
+            sno: 8,
+            chinese: 71,
+            math: 72,
+            english: 105
+        }, {
+            sno: 9,
+            chinese: 56,
+            math: 68,
+            english: 61
+        }, {
+            sno: 10,
+            chinese: 98,
+            math: 83,
+            english: 77
+        },
+        ];
+
+        var str = '';
+        for (var j in score) {
+            score[j].total = score[j].chinese + score[j].math + score[j].english;
+        }
+        function paiming(type) {
+            score.sort(function (a, b) {
+                return b[type] - a[type];
+            })
+        }
+
+        paiming('total');
+        for (var l in score) {
+            score[l].paimi = l * 1 + 1;
+        }
+        for (var i = 0; i < score.length; i++) {
+            str += `   <tr class="two">
+            <td> ${score[i].sno} </td>
+            <td> ${score[i].chinese} </td>
+            <td> ${score[i].math} </td>
+            <td>${score[i].english} </td>
+            <td> ${score[i].total} </td>
+            <td>${score[i].paimi}</td>
+        </tr>`
+        }
+        tb.innerHTML = str;
+        btn.onclick = function () {
+            var hao = hao1.value * 1;
+            var yu = yu1.value * 1;
+            var shu = shu1.value * 1;
+            var ying = ying1.value * 1;
+            console.log(hao);
+            score.push({
+                sno: hao,
+                chinese: yu,
+                math: shu,
+                english: ying
+            })
+            console.log(score);
+            var str = '';
+            for (var j in score) {
+                score[j].total = score[j].chinese + score[j].math + score[j].english;
+            }
+            function paiming(type) {
+                score.sort(function (a, b) {
+                    return b[type] - a[type];
+                })
+            }
+
+            paiming('total');
+            for (var l in score) {
+                score[l].paimi = l * 1 + 1;
+            }
+            for (var i = 0; i < score.length; i++) {
+                str += `   <tr class="two">
+            <td> ${score[i].sno} </td>
+            <td> ${score[i].chinese} </td>
+            <td> ${score[i].math} </td>
+            <td>${score[i].english} </td>
+            <td> ${score[i].total} </td>
+            <td>${score[i].paimi}</td>
+        </tr>`
+            }
+            tb.innerHTML = str;
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>两数最大</h1>
+    <input type="text" name="" id="tex1">
+    <span>比较</span>
+    <input type="text" name="" id="tex2">
+    <input type="button" name="" id="btn" value="目测也能知道吧？">
+    <div id="box">
+
+    </div>
+
+    <script>
+    var tex1 = document.getElementById('tex1');
+    var tex2 = document.getElementById('tex2');
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+
+    btn.onclick = function(){
+          var val1 = tex1.value*1;
+          var val2 = tex2.value*1;
+         bijiao();
+          function bijiao(){
+            var sum = val1>val2? val1:val2;
+            box.innerHTML = sum;
+          }
+
+
+    }
+    
+    </script>
+
+</body>
+</html>

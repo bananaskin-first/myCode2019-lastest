@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+
+    <style>
+    #box{
+        width: 200px;
+        height: 200px;
+        border: 1px solid gray;
+        margin: 200px auto;
+    }
+    #list{
+        display: flex;
+        justify-content: space-around;
+    }
+    #list span{
+        display: block;
+        width: 49%;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        background: rgb(196, 181, 181);
+        border: 1px solid gray;
+        margin-bottom: 20px;
+
+    }
+    #list1{
+        width: 94%;
+        height: 30px;
+        background: rgb(196, 181, 181);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 20px;
+        color: gray;
+        font-size: 14px;
+    }
+    #list2{
+        height: 50px;
+        width: 94%;
+        font-size: 14px;
+        margin:auto;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+    }
+    #list2 .p1 span{
+        display: block;
+    }
+    #list2 .p2{
+        color: gray;
+    }
+    #list3{
+        width: 94%;
+        height: 30px;
+        background: rgb(196, 181, 181);
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    #list3 a{
+        color:blue;
+        font-size: 15px;
+    }
+ .con{
+     display: none;
+
+ }
+ .active{
+     color: red;
+ }
+    </style>
+</head>
+<body>
+    <div id="box">
+<p id="list">
+    <span >
+        竞猜预测
+    </span><span>虹彩专家</span>
+</p>
+<div class="con" style="display: block">
+    <p id="list1">
+        <span>
+            欧冠
+        </span><span>07/24 02:00</span>
+    </p>
+    <div id="list2">
+    <p class="p1">
+    <span>艾因壑文</span><span>巴塞尔</span>
+    </p>
+    <p class="p2">
+    未开赛
+    </p>
+    </div>
+    <div id="list3">
+    <a href="">查看全部方案</a>
+    </div>
+    
+</div>
+<div class="con">
+未完成
+</div>
+    </div>
+
+<script>
+(function(){
+  var box = document.getElementById('box');
+  var list = document.getElementById('list');
+  var btns = list.getElementsByTagName('span');
+  var cons = box.getElementsByClassName('con');
+
+  for(var i =0 ; i< btns.length; i++){
+      btns[i].index = i;
+      btns[i].onclick = function(){
+
+          for (var j = 0; j< btns.length; j++){
+              btns[j].className= ' ';
+              cons[j].style.display = 'none';
+          }
+          this.className = 'active';
+          cons[this.index].style.display='block';
+                }
+  }
+
+
+})();
+
+</script>
+
+</body>
+</html>

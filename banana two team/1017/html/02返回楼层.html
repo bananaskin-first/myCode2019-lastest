@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .con:nth-child(1) {
+            background: orange;
+        }
+
+        .con:nth-child(2) {
+            background: blue;
+        }
+
+        .con:nth-child(3) {
+            background: green;
+        }
+
+        #mea {
+            position: fixed;
+            top: 100px;
+            left: 30px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border: 1px solid;
+
+        }
+
+        .tab {
+            width: 50px;
+            height: 20px;
+            border: 1px solid orange;
+            background: gray;
+            text-align: center;
+            color: white;
+        }
+
+        .active {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="lou">
+            <li class="con"></li>
+            <li class="con"></li>
+            <li class="con"></li>
+        </ul>
+
+        <ul id="mea">
+            <li class="tab">一楼</li>
+            <li class="tab">二楼</li>
+            <li class="tab">三楼</li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        /*
+        先写样式，楼层用绝对定位flex 定位，
+        lou 里面的元素宽度设置为浏览器window 高度，window.innerHeight
+       点击tab跳转相应楼层，scrollTo（）的使用，需要用this和配合index。选项卡的知识点。
+    
+        */
+        var box = document.getElementById('box');
+        var lou = document.getElementById('lou');
+        var cons = box.getElementsByClassName('con');//这是个集合
+        var mea = document.getElementById('mea');
+        var btn = box.getElementsByClassName('tab');//集合
+
+        for (var i = 0; i < cons.length; i++) {
+            cons[i].style.height = window.innerHeight + 'px';
+            //得知跳转的距离
+            var ih = window.innerHeight;
+            btn[i].index = i;
+
+            //实现了点击跳转
+            btn[i].onclick = function () {
+                for (var j = 0; j < btn.length; j++) {
+                    window.scrollTo(0, this.index * ih);
+                    btn[j].className = 'tab';
+                    btn[this.index].className = 'active tab';
+                }
+
+            }
+            //实现滚动时候对应按钮高亮，要用判断语句，
+
+            window.onscroll = function () {
+                var scrolltop = window.scrollY;
+                // console.log(scrolltop);
+
+                for (var i = 0; i < cons.length; i++) {
+                    if (scrolltop >= cons[i].offsetTop) {
+
+                        for (var j = 0; j < btn.length; j++) {
+                            btn[j].className = 'tab';
+                        }
+                        btn[i].className = 'tab active';
+                    }
+                }
+            }
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

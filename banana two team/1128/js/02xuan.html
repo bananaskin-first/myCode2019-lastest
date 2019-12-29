@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据渲染</title>
+</head>
+
+<body>
+
+    <div id="box">
+
+    </div>
+
+</body>
+<script src="jquery-1.10.1.min.js"></script>
+<script>
+    let box = document.querySelector('#box');
+    $.ajax({
+        type: 'get',
+        url: 'data/cnodejs.json',
+        success: str => {
+
+            // console.log(str);
+            // str.forEach(function (ele, index) {
+            //     // console.log(ele);
+            //     str1 += `<ul>      <li></li>   <li></li>  </ul>`
+            // })
+            // console.log(str1);
+            let str2 = str.map(item => {
+                return `<ul> <li><img src="${item.url}" alt=""></li>   <li>${item.title}</li>  </ul>`;
+
+            }).join('');
+            // console.log(str2);
+
+            box.innerHTML = str2;
+
+        }
+
+
+    });
+
+
+    // console.log(str2);
+
+
+
+</script>
+
+</html>

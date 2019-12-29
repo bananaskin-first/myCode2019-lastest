@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 200px;
+            background: orange;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <input type="text" name="" id="val">
+    <input type="text" name="" id="val1"> -->
+    <input type="button" name="" id="btn" value="计算">
+
+    <div id="box"></div>
+    <script>
+        // var tex = document.getElementById('val');
+        // var tex1 = document.getElementById('val1');
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+        var iso = true;
+        btn.onclick = function () {
+
+            //     var tex = val.value * 1;
+            //     var tex1 = val1.value * 1;
+            //     var res = cal(tex,tex1);
+            //     box.innerHTML = '商' + res.chu + '和' + res.jia + '积' + res.cheng + '商' + res.jian;
+            // }
+
+
+            // function cal(tex,tex1) {
+            //     var jia = tex + tex1;
+            //     var cheng = tex * tex1;
+            //     var jian = tex - tex1;
+            //     var chu = tex / tex1;
+            //     return {
+            //         jia,jian,cheng,chu
+            //     }'
+
+            if (iso) {
+                box.style.display = 'block';
+            }
+            else {
+                box.style.display = 'none';
+            }
+            iso = !iso;
+        }
+    </script>
+
+</body>
+
+</html>

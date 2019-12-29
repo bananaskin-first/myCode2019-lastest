@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 400px;
+            height: 300px;
+            margin: 200px auto;
+        }
+
+        .imglist {
+            background: url('../image/8671674_161416527002_2.jpg');
+            background-size: 100%;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .slip {
+            width: 100%;
+            height: 50px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .slip .greenslip {
+            height: 100%;
+            width: 0px;
+            background: green;
+        }
+
+        .slip .slipdiv {
+            width: 50px;
+            height: 100%;
+            background: gray;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="box">
+        <div class="imglist">
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+        <ul class="slip">
+            <li class="greenslip"> </li>
+            <li class="slipdiv"> </li>
+        </ul>
+    </div>
+</body>
+<script src="../js/myquery.js"></script>
+<script>
+    //先实现下面滑动条的移动
+
+    let box = document.querySelector('#box');
+    let slip = box.querySelector('.slip');
+
+
+    //绑定事件
+
+    slip.children[1].onmousedown = () => {
+        //点击读取他的位置c
+        // console.log(1);
+
+        var iw = slip.offsetLeft;
+        console.log(iw);
+        document.onmousemove = (ev) => {
+            //移动的时候跟着鼠标走
+            var left = ev.pageX - iw - slip.children[1].offsetWidth / 2;
+            //不懂这个相对位移关系
+            // console.log(left);
+            //移动的时候那个小的宽度要边大
+            slip.children[0].style.width = left + 'px';
+            //限定条件
+            if (left <= 0) {
+                left = 0;
+            }
+            else if (left >= slip.offsetWidth - slip.children[1].offsetWidth) {
+                left = slip.offsetWidth - slip.children[1].offsetWidth;
+            }
+            slip.children[1].style.left = left + 'px';
+
+            document.onmouseup = () => {
+
+                if (left < slip.offsetWidth - slip.children[1].offsetWidth) {
+                    left = 0;
+                    startMove(slip.children[1], { left: left });
+                    startMove(slip.children[0], { width: left })
+                    if (left = 0) {
+                        document.onmousemove = null;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+
+
+
+</script>
+
+</html>

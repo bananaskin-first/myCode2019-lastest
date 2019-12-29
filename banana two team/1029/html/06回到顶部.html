@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 4000px;
+        }
+
+        .BToTop {
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            line-height: 70px;
+            background: rgb(214, 172, 172);
+            position: fixed;
+            bottom: 200px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="box">
+
+    </div>
+    <div class="BToTop">
+        返回顶部
+    </div>
+
+    <script>
+        let box = document.querySelector('#box');
+        let Btop = document.getElementsByClassName('BToTop')[0];
+        //与变化有关的就与定时器有关
+        Btop.onclick = () => {
+            var ih = window.scrollY;
+            var timer = setInterval(function () {
+                var speed = parseInt(ih / 6);
+                ih -= speed;
+                if (speed <= 0) {
+                    clearInterval(timer);
+                }
+                window.scrollTo(0, ih);
+                // console.log(1);
+            }, 30)
+
+        }
+    </script>
+</body>
+
+</html>

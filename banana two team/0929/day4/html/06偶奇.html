@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="" id="tex">
+    <input type="button" name="" id="btn" value="计算">
+    <div id="box"> </div>
+
+
+    <script>
+        // 6.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+…+1/n,当输入n为奇数时，调用函数求1+1/3+…+1/n
+        var tex = document.getElementById('tex');
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var sum = 0 * 1;
+        var sum1 = 0 * 1;
+        btn.onclick = function () {
+            var val = tex.value * 1;
+            //调用函数，传参val
+            jisuan(val);
+
+        }
+        function jisuan(val) {
+            //找出0 带tex 的所有数字
+            for (var i = 1; i <= val; i++) {
+                if (val % 2 == 0) {
+                    //val为偶数是运行下面代码
+                    if (i % 2 == 0) {
+                        sum += 1 / (i * 1);
+                        box.innerHTML = '偶数:' + sum;
+                    }
+                }
+
+
+                else {
+                    //不是偶数
+                    if (i % 2 != 0) {
+                        sum1 += 1 / i;
+                        box.innerHTML = '奇数：' + sum1;
+                    }
+
+                }
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

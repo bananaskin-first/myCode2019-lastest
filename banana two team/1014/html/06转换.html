@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //6.封装一个统计字符串中每个字符个数的函数并去重
+
+        // var str = 'ababcd';
+
+        // 得到：
+        // var obj={
+        //     a:2,
+        //     b:2,
+        //     c:1,
+        //     d:1
+        // }
+        // 得到：
+        // var str = 'abcd';
+
+        var str = 'abasdsaddsadd';
+        var arr = [];
+        for (var i = 0; i < str.length; i++) { //想不懂字符串转化为对象
+            //先转化为数组
+            arr.push(str[i]);
+
+
+        }
+
+        function count() {
+            var obj = {};
+            arr.forEach(function (item) {
+                if (obj[item]) {
+                    obj[item]++;
+                }
+                else {
+                    obj[item] = 1
+                }
+            })
+            return obj;
+        }
+        var res = count();
+        console.log(res);
+    </script>
+</body>
+
+</html>

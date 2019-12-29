@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="tex">
+        <input type="button" name="" id="btn" value="">
+        <input type="button" name="" id="but" value="验证">
+        <span id="div"></span>
+    </div>
+    <script>
+        var btn = document.getElementById('btn');
+        var tex = document.getElementById('tex');
+        var but = document.getElementById('but');
+        var box = document.getElementById('div')
+        var arr = 'asdfghjklqwertyuiopzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM'
+        var str = '';
+        for (var i = 0; i < 4; i++) {
+            str += arr[parseInt(Math.random() * arr.length)];
+        }
+        btn.value = str;
+        btn.onclick = function () {
+            var str = '';
+            for (var i = 0; i < 4; i++) {
+                str += arr[parseInt(Math.random() * arr.length)];
+            }
+
+            btn.value = str;
+        }
+        but.onclick = function () {
+            var val = tex.value;
+            console.log(val);
+            if (val.toLowerCase() == str.toLowerCase()) {
+                box.innerHTML = '验证通过'
+            }
+            else (box.innerHTML = '验证错误')
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

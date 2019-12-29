@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>计算两束主城的参数，累了</h1>
+    <input type="text" name="" id="val">
+    <input type="text" name="" id="val1">
+    <input type="button" name="" id="btn" value="害怕">
+    <div id="box"></div>
+
+
+    <script>
+
+        //     5.编写一个函数，计算任意两个数字之间所能组成的奇数个数，参数数字必须是个位数 比如： 计算0-3之间能组成的奇数是01、21、03、13、23、31
+        // 不能单个数字本身进行组合，如11,33
+
+        var tex = document.getElementById('val');
+        var tex1 = document.getElementById('val1');
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        var sun = " ";
+        var sum = " ";
+        var bigsum = " ";
+        btn.onclick = function () {
+
+            var tex = val.value * 1;
+            var tex1 = val1.value * 1;
+
+            jishu(tex, tex1);
+
+        }
+
+        function jishu(tex, tex1) {
+            //需要找到tex1 所有基数
+            var bigger = tex < tex1 ? tex1 : tex;
+            var small = tex < tex1 ? tex : tex1;
+
+            // console.log(bigger);
+            // console.log(small);
+            for (var i = small; i <= bigger; i++) {
+
+                if (i % 2 != 0) {
+                    //找到0 到最小 之内所有数;
+                    for (k = small; k <= bigger; k++) {
+
+
+                        sun = String(i);
+                        sum = String(k);
+                        if (sum != sun) {
+                            bigsum += sum + sun + "<br>";
+                            //将所有最小的放在十位，大放个位；
+                            box.innerHTML = bigsum;
+                        }
+
+
+
+
+                    }
+
+                }
+
+
+            }
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

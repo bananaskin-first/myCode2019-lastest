@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        
+        <h1>求最小公倍数</h1>
+        <input type="text" name="" id="tex" placeholder="请输入一个数">
+        <input type="text" name="" id="tex1" placeholder="请输入一个数">
+        <input type="button" name="" id="btn" value="结果">
+        <div id="box">
+    
+        
+</div>
+
+
+<script>
+var tex = document.getElementById('tex');
+var tex1 = document.getElementById('tex1');
+var btn = document.getElementById('btn');
+var box = document.getElementById('box');
+
+btn.onclick = function(){
+
+var val = tex.value*1;
+var val1 = tex1.value*1;
+var sum= val<val1 ? val1:val;
+
+    for ( sum;sum>0;sum++){
+        if(sum%val ==0 &&sum%val1 ==0){
+           box.innerHTML = '最小公倍数'+sum;
+            break;
+        }
+    }
+
+
+
+
+}
+</script>
+    
+</body>
+</html>

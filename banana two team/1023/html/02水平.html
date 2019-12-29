@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 400px;
+            height: 50px;
+            background: rgb(197, 194, 194);
+            margin: 400px;
+            position: relative;
+        }
+
+        #bar {
+            width: 50px;
+            height: 50px;
+            background: green;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #move {
+            width: 50px;
+            height: 50px;
+            background: rgb(105, 3, 109);
+            position: absolute;
+            left: 400px;
+            top: 300px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <div id="bar">
+
+        </div>
+
+    </div>
+    <div id="move">
+
+    </div>
+    <script>
+        var box = document.querySelector('#box');
+        var bar = document.querySelector('#bar');
+        var move = document.querySelector('#move');
+
+        bar.onmousedown = function (ev) {
+            var barX = ev.offsetX;
+            // console.log(barX);
+            document.onmousemove = function (ev) {
+                var left = ev.pageX - barX - box.offsetLeft;
+                // console.log(left);
+
+                if (left <= 0) {
+                    left = 0;
+                }
+                else if (left >= box.offsetWidth - bar.offsetWidth) {
+                    left = box.offsetWidth - bar.offsetWidth;
+                }
+
+                var scal = left / (box.offsetWidth - bar.offsetWidth);
+                console.log(scal);
+                move.style.left = scal * 600 + +400 + 'px';
+                bar.style.left = left + 'px';
+
+            }
+        }
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="tex1">
+
+    <input type="button" name="" id="btn">
+
+
+
+    <script>
+        var tex = document.getElementById('tex1');
+        var btn = document.getElementById('btn');
+        var num = parseInt(Math.random() * 100 + 1);
+
+        btn.onclick = function () {
+
+            var tex = tex1.value;
+
+            if (tex < num) {
+                alert('小');
+            }
+            else if (tex > num) {
+                alert('大');
+            }
+            else if (tex == num) {
+                alert('正确');
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin-left: 500px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 600px;
+            height: 200px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #box h3 {
+            border-bottom: 1px solid gray;
+            width: 92%;
+            margin: auto;
+        }
+
+        #box1 {
+            width: 600px;
+            margin: auto;
+        }
+
+        #text {
+            height: 40px;
+            width: 540px;
+            position: relative;
+            font-size: 22px;
+
+        }
+
+        #btn {
+            height: 44px;
+            width: 49px;
+            position: absolute;
+        }
+
+        .two {
+            width: 92%;
+            margin: 12px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>显示5条消息</h1>
+    <div id="box">
+        <h3>最新消息</h3>
+        <div id="box2">
+
+        </div>
+        <!-- <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p> -->
+    </div>
+    <div id="box1">
+        <input type="text" name="" id="text">
+        <input type="button" name="" id="btn" value="添加">
+    </div>
+    <script>
+        var text = document.getElementById('text');
+        var btn = document.getElementById('btn');
+        var box2 = document.getElementById('box2');
+
+        var val = [{
+            tex: `看请问女`
+        },
+        {
+            tex: `喂杀了你妈间的女`
+        }, {
+            tex: `无菊花的女`
+        }, {
+            tex: `根据操你妈女`
+        }, {
+            tex: `熊二偶然间的叼你妈女`
+        }];
+        console.log(val);
+
+        var str = '';
+        val.forEach(function (item, index) {
+            str += ` <p class="two">${index + 1}` + `${item.tex}</p>`
+        })
+
+        function lei(srd) {
+            var arr = ['叼你妈', '操你妈', '杀了你妈', '菊花给你操烂'];
+            arr.forEach(function (item) {
+                var reg = new RegExp(item, 'ig');
+                srd = srd.replace(reg, '***');
+            });
+            return srd;
+        }
+        var res = lei(str);
+
+        box2.innerHTML = res;
+
+        btn.onclick = function () {
+            var tex1 = text.value;
+            var res = lei(tex1);
+
+            val.unshift({ tex: res });//添加到数组第一个;
+            console.log(res);
+            console.log(val);
+            var str = '';
+            val.forEach(function (item, index) {
+                str += ` <p class="two">${index + 1}` + `${item.tex}</p>`
+            })
+            box2.innerHTML = str;
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

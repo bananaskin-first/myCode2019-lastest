@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        #box {
+            width: 230px;
+            height: 400px;
+
+        }
+
+        .header {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        #hep {
+            position: absolute;
+            width: 100%;
+
+        }
+
+        .header p {
+            color: white;
+            height: 30px;
+            background: orange;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .main {
+            padding: 0px 5px;
+
+
+
+        }
+
+        .main p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .main p span:nth-child(1) {
+            color: rgba(233, 42, 42, 0.877);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .main p span:nth-child(2) {
+            font-size: 12px;
+            color: rgb(158, 151, 151);
+        }
+
+        .active {
+            text-decoration: underline;
+            color: orange;
+        }
+
+        .main a {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+
+
+        }
+
+        .main .m-name {
+            display: flex;
+            justify-content: space-between;
+            color: rgb(158, 151, 151);
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="header">
+            <img src="../1571458326.jpg" alt="">
+            <div id="hep">
+                <p><span>找同款</span><span>找相似</span></p>
+            </div>
+        </div>
+        <div class="main">
+            <p><span>￥432.00</span><span>128人付款</span></p>
+            <a id="ap" href="">牛仔外套男潮牌2019春秋季宽松帅气欧美街头牛仔衣韩版潮流夹克</a>
+            <div class="m-name">
+                <span>与安装不了</span>
+                <span>上海</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        var hep = document.getElementById('hep');
+        var box = document.getElementById('box');
+        var atarget = document.getElementById('ap')
+        //移入显示相似滑条
+        box.onmouseover = function () {
+            hep.style.bottom = 0 + 'px';
+            box.style.border = 'solid red 1px'
+        }
+        //移出隐藏相似滑条
+        box.onmouseout = function () {
+            hep.style.bottom = -200 + 'px';
+            box.style.border = ''
+        }
+        //同理鼠标事件
+        atarget.onmouseover = function () {
+            atarget.className = 'active';
+        }
+        atarget.onmouseout = function () {
+            atarget.className = '';
+        }
+
+        //后面就是拿数据和渲染到页面
+    </script>
+
+    </div>
+
+</body>
+
+</html>

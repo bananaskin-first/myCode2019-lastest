@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>花呗收取的利息</h1>
+    <span>欠的钱:</span>
+    <input type="text" name="" id="tex">
+    <span>天数:</span>
+    <input type="text" name="" id="tex1">
+    <input type="button" name="" id="btn" value="计算">
+    <div id="box">
+
+    </div>
+
+<script>
+var tex = document.getElementById('tex');
+var tex1 = document.getElementById('tex1');
+var btn = document.getElementById('btn');
+var box = document.getElementById('box')
+
+btn.onclick = function(){
+
+    var money = tex.value;
+    var day = tex1.value;
+lixi();
+    function lixi(){
+        var sun = 0;
+        var  li = money * 0.0005;
+        for (var i = 0; i <= day;i++) {
+              
+              sun +=li;
+
+
+        }
+        box.innerHTML = '利息:' + sun;
+
+    }
+}
+
+</script>
+
+</body>
+</html>

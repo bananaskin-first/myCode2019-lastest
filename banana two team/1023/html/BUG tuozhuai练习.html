@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: #58bc58;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+
+    <script>
+
+        //有bUG  移动到角落的时候会出去
+        var box = document.querySelector('#box');
+
+        box.onmousedown = function (event) {
+            //按住的时候 读取X方向数值和Y数值;
+            var boxleft = event.offsetX;
+            var boxtop = event.offsetY;
+            //点击并且移动
+
+            // box.onmousemove = function (event) {
+            //     //对box 绑定的时候会出现用户移动超级快的时候移除作用于就会导致不移动，
+            //     //所以点击后可以对document绑定move事件，这样就不会移除
+
+
+            //     var left = event.pageX - boxleft;
+            //     var top = event.pageY - boxtop;
+
+            //     box.style.left = left + 'px';
+            //     box.style.top = top + 'px';
+
+            // }
+            document.onmousemove = function (event) {
+
+                var left = event.pageX - boxleft;
+                var top = event.pageY - boxtop;
+                //临界值
+                if (left <= 30) {
+                    left = 0;
+                }
+                else if (left >= window.innerWidth - box.offsetWidth - 10) {
+                    left = window.innerWidth - box.offsetWidth;
+                }
+                else if (top <= 30) {
+                    top = 0;
+                }
+                else if (top >= window.innerHeight - box.offsetHeight - 30) {
+                    top = window.innerHeight - box.offsetHeight;
+                }
+
+                box.style.left = left + 'px';
+                box.style.top = top + 'px';
+
+            }
+
+        }
+        box.onmouseup = function () {
+            //鼠标抬起结束move事件
+            document.onmousemove = null;
+
+        }
+
+    </script>
+</body>
+
+</html>

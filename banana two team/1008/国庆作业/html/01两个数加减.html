@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="tex1">
+  <select name="" id="sec">
+    <option class="con" value="jia">+</option>
+    <option class="con" value="jian">-</option>
+    <option class="con" value="cheng">*</option>
+    <option class="con" value="chu">/</option>
+  </select>
+    <input type="text" name="" id="tex2">
+    <input type="button" name="" id="btn" value="计算">
+  <div id="box">
+
+  </div>
+  <script>
+  var tex1 = document.getElementById('tex1');
+  var sec = document.getElementById('sec');
+  var tex2 = document.getElementById('tex2');
+  var btn =document.getElementById('btn');
+  var box =document.getElementById('box');
+
+  btn.onclick = function(){
+
+      var val1 = tex1.value *1;
+      var val2 = tex2.value *1;
+    //   console.log(val1)
+    
+    var type = sec.value;
+    if (type == 'jia'){
+        var sum = val1 +val2;
+      box.innerHTML = sum;
+    }
+    else if (type == 'jian'){
+        var sum = val1 - val2;
+        box.innerHTML = sum;
+    }
+    else if (type == 'cheng'){
+        var sum = val1 * val2;
+        box.innerHTML = sum;
+    }
+    else if (type == 'chu'){
+        var sum = val1 / val2;
+        box.innerHTML = sum;
+    }
+
+
+  }
+  
+  </script>
+
+
+
+</body>
+</html>

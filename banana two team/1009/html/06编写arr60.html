@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 6.编写一个has(arr,60)函数，判断arr数组中是否包含60这个数：有返回true。没有返回false
+        arr = [23, 455, 76, 8, 5, 23, 12, 43, 56, 60];
+
+        console.log(has(arr, 60));
+        function has(arr, n) {
+            var flag = false;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == n) {
+                    flag = true;
+
+                    break;
+
+                }
+
+            }
+            return flag;
+
+        }
+
+    </script>
+</body>
+
+</html>

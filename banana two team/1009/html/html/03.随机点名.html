@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../myquery.js"></script>
+</head>
+<p>'强无敌', '数据我', '孩子王', '丁师傅','SDK', 'EDG', '四大皆空', '甲壳虫'</p>
+<input type="button" value="抽取" id="btn">
+<div id="box">
+
+</div>
+
+<body>
+    <script>
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        arr = ['强无敌', '数据我', '孩子王', '丁师傅', 'SDK', 'EDG', '四大皆空', '甲壳虫'];
+
+        btn.onclick = function () {
+            box.innerHTML = arr[ranNum(0, arr.length - 1)];
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

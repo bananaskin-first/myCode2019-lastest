@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="tex">
+    <input type="button" name="" id="btn" value="判断">
+    <div id="box">
+
+    </div>
+    <script>
+    var tex = document.getElementById('tex');
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+
+    btn.onclick = function (){
+
+        var val = tex.value;
+        // console.log(val);
+        switch(true){
+            case val <60:
+          
+            box.innerHTML = '不合格';
+            break;
+            case 60 <= val && val <75:
+            box.innerHTML = "合格" ;
+            break;
+            case 75<= val && val <85:
+            box.innerHTML = "良好";
+            break;
+            case 85<= val && val<=100:
+            box.innerHTML = '优秀';
+        }
+
+         
+    }
+    </script>
+
+
+</body>
+</html>

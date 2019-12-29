@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //4.输出所有1-100之间7的倍数和包含7的数字
+
+        var arr = [];
+        for (var i = 0; i < 100; i++) {
+            var str = i.toString();
+            if (str.indexOf('7') != -1 || str & 7 == 0) {
+                arr.push(str);
+            }
+        }
+        console.log(arr);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            margin-left: 500px;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 600px;
+            height: 200px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #box h3 {
+            border-bottom: 1px solid gray;
+            width: 92%;
+            margin: auto;
+        }
+
+        #box1 {
+            width: 600px;
+            margin: auto;
+        }
+
+        #text {
+            height: 40px;
+            width: 540px;
+            position: relative;
+            font-size: 22px;
+
+        }
+
+        #btn {
+            height: 44px;
+            width: 49px;
+            position: absolute;
+        }
+
+        .two {
+            width: 92%;
+            margin: 12px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>显示5条消息</h1>
+    <div id="box">
+        <h3>最新消息</h3>
+        <div id="box2">
+
+        </div>
+        <!-- <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p>
+        <p class="two">所得税</p> -->
+    </div>
+    <div id="box1">
+        <input type="text" name="" id="text">
+        <input type="button" name="" id="btn" value="添加">
+    </div>
+    <script>
+        var text = document.getElementById('text');
+        var btn = document.getElementById('btn');
+        var box2 = document.getElementById('box2');
+
+        var val = [{
+            tex: `看请问女`
+        },
+        {
+            tex: `喂喂喂间的女`
+        }, {
+            tex: `无钱间的女`
+        }, {
+            tex: `根据女间的女`
+        }, {
+            tex: `熊二偶然间的女`
+        }];
+        console.log(val);
+
+        var str = '';
+        for (var i = 0; i < val.length; i++) {
+            str += ` <p class="two">${(i + 1) + val[i].tex}</p>
+               `
+
+        }
+
+
+
+        box2.innerHTML = str;
+
+        btn.onclick = function () {
+            val.splice(4, 1);
+            val.unshift({ tex: text.value });
+
+            var str = val.map(function (item, index) {
+                return `<p class="two">${index + 1}:${item.tex}</p>`
+            }).join('');
+
+            box2.innerHTML = str;
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

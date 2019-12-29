@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="mark" placeholder="呆子请你输入分数">
+    <input type="button" id="btn" value="菜">
+    <div id="box"></div>
+</body>
+<script>
+var mark = document.getElementById('mark');
+var btn = document.getElementById('btn');
+var box = document.getElementById('box');
+
+btn.onclick = function(){
+
+    var mak = mark.value;
+    mak= parseInt(mak);
+   
+    switch(mak){
+        case mak>=0 && mak<60:
+        box.innerHTML = "菜B";
+        break;
+        case mak>=60 && mak<=75:
+        box.innerHTML = "及格";
+        break;  
+        case mak>75 && mak<=85:
+        box.innerHTML= "良好";
+        break;
+        case mak>85 && mak<=100:
+        box.innerHTML = "牛B";
+        break;
+    }
+}
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    table{
+         border: 1px solid red;
+         width: 1000px;
+        
+         border-spacing: 0px;
+         
+    }
+
+    td{
+        border: 1px solid red;
+        width: 100px;
+        height: 50px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <input type="text" name="" id="tex">
+    <input type="text" name="" id="tex2">
+    <input type="button" name="" id="btn">
+    <div id="output">
+
+    </div>
+   <script>
+   var tex = document.getElementById('tex');
+   var tex2 =document.getElementById('tex2');
+   var btn = document.getElementById('btn');
+   var output = document.getElementById('output');
+   btn.onclick = function(){
+
+       var val1 = tex.value;
+       var val2 = tex2.value;
+       var str=' ';
+       str +='<table>'
+       for(var i = 1; i<=val1;i++){
+
+             if ( i %2==0){
+                 str +='<tr style="background:pink;">';
+             }
+             else{
+                 str +='<tr style="background:green;">';
+             }
+
+           for(var k=1 ;  k<=val2; k++){
+             
+           str += '<td></td>';
+          
+    
+       }
+       str += '</tr>';
+       }
+       str += '</table>';
+       output.innerHTML = str;
+       }
+   
+   </script>
+
+</body>
+</html>

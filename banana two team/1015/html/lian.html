@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        * {
+       
+        margin: 0;
+       
+        padding: 0;
+       
+        }
+       
+        .panel {
+       
+        position: fixed;
+       
+        right: 0;
+       
+        bottom: 0;
+       
+        width: 200px;
+       
+        height: 200px;
+       
+        line-height: 200px;
+       
+        text-align: center;
+       
+        background-color: skyblue;
+       
+        }
+       
+        .close {
+       
+        position: absolute;
+       
+        right: 0;
+       
+        top: -30px;
+       
+        width: 30px;
+       
+        height: 30px;
+       
+        background-color: black;
+       
+        color: white;
+       
+        line-height: 30px;
+       
+        cursor: pointer;
+       
+        }
+       
+        </style>
+       
+       
+       
+       </head>
+       
+       <body>
+       
+       
+       
+       
+           <div class="panel">
+       
+               <div class="close">&times;</div>
+       
+               <span>流氓广告</span>
+       
+           </div>
+       
+           <script>
+       
+               // 获取元素 
+       
+               // 根据类名 获取所有的类中包含的元素集合
+       
+               var panelCollection = document.getElementsByClassName("panel");
+       
+               // 根据下标 获取对应的元素
+       
+               var panel = panelCollection[0];
+       
+       
+       
+       
+               // 根据类名 获取关闭按钮
+       
+               var closeCollection = document.getElementsByClassName("close");
+       
+               // 根据下标 获取对应的元素
+       
+               var close = closeCollection[0];
+       
+       
+       
+       
+               // 当点击close时，要让panel消失
+       
+               close.onclick = function() {
+       
+                   panel.remove();
+       
+                   // 此时开始计时 一定时间之后 再让它出现
+       
+                   setTimeout(function() {
+       
+                       document.body.appendChild(panel);
+       
+                   }, 1000);
+       
+               }
+       
+       
+       
+       
+       
+           </script>
+
+</html>

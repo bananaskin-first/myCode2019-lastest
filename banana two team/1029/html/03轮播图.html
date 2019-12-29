@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/css2.css">
+
+</head>
+
+<body>
+    <div id="box">
+        <ul class="imglist">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+        <ul class="indexlist">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <script src="../js/myquery.js"></script>
+    <script>
+
+        let box = document.querySelector('#box');
+        let lists = box.querySelectorAll('.imglist li');//集合;
+        let indexlists = box.querySelectorAll('.indexlist li');
+        let iw = lists[0].offsetWidth;
+        let timer = null;
+        css(lists[0], 'left', 0);
+        let now = 0;
+        timer = setInterval(next, 2000);
+
+        // console.log(lists.length)    
+        function next() {
+            //旧图移除
+            startMove(lists[now], { left: -iw });
+            now++;
+
+            //新图进场
+            // startMove(lists[now], { left: 0 });
+            if (now > lists.length - 1) {
+                now = 0;
+            }
+            // console.log(now);
+            css(lists[now], 'left', iw + 'px');
+            startMove(lists[now], { left: 0 });
+            indexlists.forEach(function (item) {
+                item.className = '';
+            })
+            indexlists[now].className = 'active';
+        }
+        box.onmouseover = () => {
+            clearInterval(timer);
+        }
+        box.onmouseout = () => {
+            clearInterval(timer);
+            timer = setInterval(next, 2000);
+        }
+        for (let i = 0; i < indexlists.length; i++) {
+            indexlists[i].onclick = () => {
+
+            }
+        }
+        //点击事件
+
+
+
+
+
+    </script>
+</body>
+
+</html>

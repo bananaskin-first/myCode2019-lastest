@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 500px;
+            height: 50px;
+            background: rgb(199, 180, 180);
+            margin: 400px;
+            position: relative;
+        }
+
+        #move {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: rgb(255, 12, 255);
+            font-size: 30px;
+            line-height: 50px;
+            color: wheat;
+            text-align: center;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+        }
+
+        #hua {
+            width: 0px;
+            height: 50px;
+            background: green;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .tip {
+            position: absolute;
+            z-index: 5;
+            top: 30%;
+            left: 45%;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+        }
+
+        .tip1 {
+            position: absolute;
+            z-index: 5;
+            top: 30%;
+            left: 45%;
+            display: none;
+            -moz-user-select: none;
+            /*火狐*/
+            -webkit-user-select: none;
+            /*webkit浏览器*/
+            -ms-user-select: none;
+            /*IE10*/
+            -khtml-user-select: none;
+            /*早期浏览器*/
+            user-select: none;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div id="box">
+        <div id="hua">
+
+        </div>
+        <div id="move">
+            >>
+        </div>
+        <span class="tip">
+            向右滑动
+        </span>
+        <span class="tip1">
+            验证通过
+        </span>
+
+    </div>
+    <script>
+        var box = document.querySelector('#box');
+        var move = document.querySelector('#move');
+        var hua = document.querySelector('#hua');
+        var span = box.getElementsByClassName('tip')[0];
+        var span1 = box.getElementsByClassName('tip1')[0];
+        //获取滑块的距离
+        move.onmousedown = function (ev) {
+            var moveX = ev.offsetX;
+            // console.log(moveX);
+            document.onmousemove = function (ev) {
+                var left = ev.pageX - moveX - box.offsetLeft;
+                if (left <= 0) {
+                    left = 0;
+                    span.style.display = 'block';
+                    span1.style.display = 'none';
+                }
+                else if (left >= box.offsetWidth - move.offsetWidth) {
+                    left = box.offsetWidth - move.offsetWidth;
+                    span.style.display = 'none';
+                    span1.style.display = 'block';
+
+                }
+                hua.style.width = left + 'px';
+                move.style.left = left + 'px';
+            }
+        }
+        document.onmouseup = function (ev) {
+            var moveX = ev.offsetX;
+            var left = ev.pageX - moveX - box.offsetLeft;
+            document.onmousemove = null;
+            if (left < box.offsetWidth - move.offsetWidth) {
+                left = 0;
+                hua.style.width = left + 'px';
+                move.style.left = left + 'px';
+                span1.style.display = 'none';
+                span.style.display = 'block';
+            }
+
+            else if (left >= box.offsetWidth - move.offsetWidth) {
+                left = box.offsetWidth - move.offsetWidth;
+                move.style.left = left + 'px';
+                hua.style.width = left + 'px';
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

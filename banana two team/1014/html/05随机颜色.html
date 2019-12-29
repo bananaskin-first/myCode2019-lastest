@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            background: #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        //5.16进制随机背景色
+        var box = document.getElementById('box');
+
+        setInterval(function () {
+            var str = '#';
+            var arr = '0123456789abcdef'
+            for (var i = 0; i < 6; i++) {
+                str += arr[parseInt(Math.random() * arr.length)];//a[];ES6的写法
+            }
+
+            box.style.background = str;
+
+        }, 600);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //     2.封装两个函数：
+
+        // -实现字符串转成对象：
+
+        // -实现对象转成字符串；
+
+        // 给你：
+        // var obj = {
+        //     key0: 0,
+        //     key1: 1,
+        //     key2: 2
+        // }
+
+        // 得到：key0=0&key1=1&key2=2
+
+        var str = "key0=0&key1=1&key2=2";
+        console.log(str)
+        var date = str.split("&");
+        console.log(date);//["key0=0", "key1=1", "key2=2"]
+        var obj = {};
+        date.forEach(function (item) {
+            var date1 = item.split('=');//[key0 , 0]
+            console.log(date1);
+            obj[date1[0]] = date1[1]
+
+        })
+        console.log(obj)
+
+        //翻转;
+
+        var obj = {
+            key0: 0,
+            key1: 1,
+            key2: 2
+        }
+        var arr = [];
+        for (key in obj) {
+            arr.push(key + '=' + obj[key]);//添加属性名到arr中
+
+        }
+        //arr ["key0", 0, "key1", 1, "key2", "2"]
+        console.log(arr);//["key0=0", "key1=1", "key2=2"]
+        var arr1 = arr.join('&');
+        console.log(arr1);//key0=0&key1=1&key2=2
+    </script>
+</body>
+
+</html>

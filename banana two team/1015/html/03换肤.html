@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box1 {}
+
+        #box {
+            width: 400px;
+            height: 200px;
+            border: 1px solid;
+            margin: auto;
+            display: none;
+
+        }
+
+        .one {
+
+            background: green;
+        }
+
+        .two {
+
+            background: yellow;
+        }
+
+        .three {
+
+            background: blue;
+        }
+
+        .four {
+
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="box2">
+
+        </div>
+        <input type="button" name="" id="btn1" value="换皮肤">
+        <ul id="box">
+
+            <li>
+                <input class="typ" type="button" name="" id="" value="红">
+                <input class="typ" type="button" name="" id="" value="绿">
+                <input class="typ" type="button" name="" id="" value="蓝">
+                <input class="typ" type="button" name="" id="" value="黄">
+                <input class="typ" type="button" name="" id="" value="确定">
+                <input class="typ" type="button" name="" id="" value="取消">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+        js部分，点击的时候切换皮肤，
+        */
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        var btn1 = document.getElementById('btn1');
+        var box = document.getElementById('box');
+        var sum = true;
+        var typ1 = document.getElementsByClassName('typ')[0];
+        var typ2 = document.getElementsByClassName('typ')[1];
+        var typ3 = document.getElementsByClassName('typ')[2];
+        var typ4 = document.getElementsByClassName('typ')[3];
+        var typ5 = document.getElementsByClassName('typ')[4];
+        var typ6 = document.getElementsByClassName('typ')[5];
+        console.log(typ1);
+        btn1.onclick = function () {
+            if (sum) {
+                box.style.display = 'block';
+
+            }
+            else {
+                box.style.display = 'none';
+            }
+
+            sum = !sum;
+        };
+        var col = '';
+        typ1.onclick = function () {
+            box1.style.background = 'red';
+            box2.style.background = 'red';
+        };
+        typ2.onclick = function () {
+            box1.style.background = 'green';
+            box2.style.background = 'green';
+        };
+        typ3.onclick = function () {
+            box1.style.background = 'blue';
+            box2.style.background = 'blue';
+        };
+        typ4.onclick = function () {
+            box1.style.background = 'yellow';
+            box2.style.background = 'yellow';
+        }
+
+        console.log(col);
+        typ5.onclick = function () {
+            box.style.display = 'none';
+            col = box2.style.background;
+        }
+        typ6.onclick = function () {
+            box.style.display = 'none';
+            box1.style.background = col;
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

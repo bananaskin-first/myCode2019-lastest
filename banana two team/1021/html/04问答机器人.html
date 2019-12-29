@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 500px;
+            height: 500px;
+
+            margin: 100px auto;
+        }
+
+        ul {
+            height: 440px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            overflow-y: scroll;
+        }
+
+        #box1 {
+            display: flex;
+        }
+
+        #tex {
+            width: 440px;
+            height: 50px;
+            font-size: 40px;
+        }
+
+        #btn {
+            height: 54px;
+            width: 50px;
+
+        }
+
+        #box li {
+            float: left;
+            clear: both;
+            margin: 10px 0;
+            padding: 5px;
+            line-height: 2;
+            border-radius: 5px;
+            background-color: #efefef;
+        }
+
+        #box .active {
+            float: right;
+            background-color: #58bc58;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>自动应答机器人</h1>
+    <div id="box">
+        <ul>
+            <li>内容</li>
+            <li class="active">我发</li>
+            <li>内容</li>
+            <li class="active">我发</li>
+        </ul>
+        <div id="box1">
+            <input type="text" name="" id="tex">
+            <input type="button" name="" id="btn" value="提交">
+        </div>
+
+
+    </div>
+
+    <script>
+        //键盘回车提交，鼠标点击提交触发事件，先创建我防节点在右边生成li节点并且赋予内容，内容存储用数组来存，生成节点后插入在Ul里面
+
+        var box = document.querySelector('#box');
+        var ul = box.children[0];
+        var box1 = document.querySelector('#box1');
+        var text = box1.children[0];
+        var btn = box1.children[1];
+        var qarr = ['傻逼', '你是谁', '操你妈', '傻屌'];
+        var aarr = ['操你妈', '干你吗', '你马比', '臭傻逼'];
+        //先获取一次滑条数值
+        ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+        function creatLi() {
+            var val = text.value.trim();
+            if (val) {
+                var li = document.createElement('li');//创建节点；
+                li.className = 'active';
+                li.innerHTML = val;
+                ul.appendChild(li);//插入节点;
+                //机器人回复;
+                ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+                var index = qarr.indexOf(val);
+                var str = '';
+                if (index >= 0) {
+                    //找到了，生成对应回复内容;
+                    str = aarr[index];
+                    var li2 = document.createElement('li');
+                    li2.innerHTML = str;
+                    ul.appendChild(li2);
+                    ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+                    text.value = '';
+                    text.focus();
+                }
+                else {
+                    str = '傻逼';
+                    var li2 = document.createElement('li');
+                    li2.innerHTML = str;
+                    ul.appendChild(li2);
+                    ul.scrollTop = ul.scrollHeight - ul.offsetHeight - 2;
+                    text.value = '';
+                    text.focus();
+                }
+
+            }
+
+        }
+
+        btn.onclick = function () {
+            creatLi();
+        }
+        text.onkeydown = function (ev) {
+            if (ev.keyCode == 13) {
+                creatLi();
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

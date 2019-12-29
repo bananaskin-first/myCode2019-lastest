@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <span>全选</span> <input type="checkbox" name="" id="qx">
+    <span>反选</span> <input type="checkbox" name="" id="fx">
+    <div id="box">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+
+    </div>
+</body>
+<script>
+    var all = document.querySelector('#qx');
+    var fx = document.querySelector('#fx');
+    var divs = document.querySelectorAll('#box input');//集合
+    //点击全选按钮，所有的input checkbox 都要 带有checked属性来勾选
+    all.onclick = function () {
+        // console.log(1);
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].checked = all.checked;
+
+
+        }
+
+    }
+    //反选的时候和其他相反 加！；
+    fx.onclick = function () {
+        for (var j = 0; j < divs.length; j++) {
+            divs[j].checked = !divs[j].checked;
+        }
+        //点击fx按钮的时候也要实现多一次函数
+        var res = ischeck();
+        all.checked = res;
+    }
+
+    for (var k = 0; k < divs.length; k++) {
+        divs[k].onclick = function () {
+            var res = ischeck();
+            all.checked = res;
+        }
+    }
+    //判断所有input 是否勾选后在给全选按钮打钩
+    function ischeck() {
+        var ios = true;
+        for (var i = 0; i < divs.length; i++) {
+            if (!divs[i].checked) {
+                ios = false;
+                break;
+            }
+
+
+
+        }
+        return ios;
+    }
+
+</script>
+
+</html>

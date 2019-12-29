@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="tex" placeholder="身高">
+    <input type="text" name="" id="hex" placeholder="体重">
+    <input type="button" id="btn" value="查询">
+ <div id="box"></div>
+ <p>
+    成人的BMI数值：</br>
+    过轻：低于18.5</br>
+    正常：18.5-24.99</br>
+    过重：25-28</br>
+    肥胖：28-32</br>
+    非常肥胖, 高于32</br>
+ </p>
+</body>
+<script>
+//3.开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适
+//体质指数（BMI）= 体重（kg）÷身高^2（m） 如：70kg÷（1.75×1.75
+var tex = document.getElementById('tex');
+var hex = document.getElementById('hex');
+var btn = document.getElementById('btn'); 
+var box = document.getElementById('box');
+
+btn.onclick = function(){
+    var tall = tex.value;
+    var ht = hex.value;
+var sum = (tall - 108)*2;
+var bim = ht / ((tall /100)*(tall /100));
+    bim = parseInt(bim);
+    console.log(bim);
+    // if(sum >=parseInt(ht - 10) && sum<=parseInt(ht)+10){
+    //     box.innerHTML ="体重还行"
+    // }
+   
+     if ( bim <=18.5){
+        box.innerHTML ="体重过轻" + " BIM为" +bim;
+    }
+    else if ( bim >18.5 && bim<=24.99){
+        box.innerHTML ="体重正常" + " BIM为" +bim;
+    }
+    else if ( bim>24.99 && bim<=28){
+        box.innerHTML ="体重过重" + " BIM为" +bim;
+        
+    }
+    else if ( bim>28 && bim<=32){
+        box.innerHTML ="肥胖" + " BIM为" +bim;
+    }
+    else {
+        
+        box.innerHTML ="你还是人？" + " BIM为" +bim;
+    }
+    }
+   
+
+
+</script>
+</html>

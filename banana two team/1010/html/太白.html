@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        #box {
+            height: 1500px;
+        }
+
+        .imp {
+            width: 80%;
+            margin: 10px auto;
+            display: block;
+
+        }
+
+        .two {
+            width: 250px;
+            height: 320px;
+            border: 1px solid gray;
+            float: left;
+            margin: 50px;
+
+
+
+        }
+
+        .two:hover {
+            border: 1px solid orange;
+        }
+
+        .two:hover .name {
+            text-decoration: underline;
+        }
+
+        .price {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .name {
+            font-size: 12px;
+        }
+
+
+
+        .shopName {
+            font-size: 12px;
+            color: gray;
+            text-decoration: underline;
+            float: left;
+        }
+
+        .payNum {
+            font-size: 12px;
+            color: gray;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="box">
+        <li class="two">
+            <img class="imp"
+                src="https://img.alicdn.com/imgextra/i3/34418892/O1CN01bmSs8x2FYaNFuAvhT_!!0-saturn_solar.jpg_220x220.jpg_.webp"
+                alt="">
+            <p class="price">${data[i].price}</p>
+            <p class="name">
+                ${data[i].name}</p>
+            <p>
+                <span class="shopName">${data[i].shopName}</span><span class="payNum">${data[i].payNum}</span></p>
+        </li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var box = document.getElementsByClassName('listsrp-itemlist')[0];
+        var divs = box.getElementsByClassName('J_MouserOnverReq');//集合
+        var goodlist = [];
+        for (var i = 0; i < divs.length; i++) {
+            var good = {};
+            var imgurl = divs[i].getElementsByClassName('pic')[0];
+            var price = divs[i].getElementsByClassName('price')[0];
+            var paySum = divs[i].getElementsByClassName('deal-cnt')[0];
+            var title = divs[i].getElementsByClassName('J_ClickStat')[0];
+            var shopName = divs[i].getElementsByClassName('shopname')[0];
+            var adressName = divs[i].getElementsByClassName('location')[0];
+            good.url = imgurl.src;
+            good.price = price.innerHTML;
+            good.paySum = paySum.innerHTML;
+            good.name = title.innerHTML;
+            good.shopName = shopName.innerHTML;
+            good.adressName = adressName.innerHTML;
+            goodlist.push(good);
+        }
+    </script>
+</body>
+
+</html>

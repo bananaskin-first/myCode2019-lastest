@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 4.找出以下数组中所有小于10的元素并组成一个新的数组 [10,15,2,32,5,4,20,8,48,54,6]
+        arr = [10, 15, 2, 32, 5, 4, 20, 8, 48, 54, 6];
+        var alist = [];
+        for (var i = 0; i < arr.length; i++) {
+
+            if (arr[i] * 1 < 10) {
+                console.log(arr[i]);
+
+                alist.push(parseInt(arr[i]));
+            }
+        }
+        console.log(alist);
+    </script>
+
+</body>
+
+</html>

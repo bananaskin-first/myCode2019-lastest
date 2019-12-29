@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        #box {
+            margin: 100px 200px;
+            position: relative;
+            width: 200px;
+        }
+
+        .list {
+            width: 200px;
+            height: 50px;
+        }
+
+        .bottom {
+            width: 200px;
+            background: gray;
+            display: none;
+
+
+
+        }
+
+
+
+        .bottom li {
+            border-bottom: 1px solid black;
+            text-align: center;
+        }
+
+        .bottom li:hover {
+            background: orange;
+        }
+
+        .main {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 200px;
+            display: none;
+            background: yellow;
+
+        }
+
+        .main p {
+            padding: 5px 5px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" name="" value="一级导航" class="list">
+        <div class="bottom">
+            <ul>
+                <li class="two">水果</li>
+                <li class="two">素菜</li>
+                <li class="two">肉类</li>
+            </ul>
+            <div class="main">
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        (function () {
+            var box = document.getElementById('box');
+            var bottom = box.getElementsByClassName('bottom')[0];
+            var main = box.getElementsByClassName('main')[0];
+            var alis = box.getElementsByClassName('two');
+            var arr = [['苹果', '西瓜', '龙眼', '香蕉'], ['牛肉', '猪肉', '鸡肉'], ['白菜', '包菜']];//数组
+            console.log(arr);
+
+            box.onmouseover = function () {
+                bottom.style.display = 'block';
+            }
+            box.onmouseout = function () {
+                bottom.style.display = 'none';
+            }
+            bottom.onmouseover = function () {
+                main.style.display = 'block';
+
+            }
+            bottom.onmouseout = function () {
+                main.style.display = 'none';
+            }
+
+            for (var i = 0; i < alis.length; i++) {
+                alis[i].index = i;
+
+                alis[i].onmouseover = function () {
+                    var str = '';
+                    for (var k = 0; k < arr[this.index].length; k++) {
+                        str += '<p><a href="###">' + arr[this.index][k] + '</a></p>';
+                    }
+                    console.log(str);
+                    main.innerHTML = str;
+                }
+
+            }
+
+
+        }
+        )();
+
+
+    </script>
+
+</body>
+
+</html>

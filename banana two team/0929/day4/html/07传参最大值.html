@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        // 7.根据传进的参数得到最大值
+
+        var box = document.getElementById('box');
+
+        function num(arr) {
+
+            var max = 0 * 1;
+            var min = 0 * 1;
+            for (i = 0; i < arr.length - 1; i++) {
+                //找最大数
+                max = arr[i] < arr[i + 1] ? arr[i + 1] : arr[i];
+                //找最小数
+                min = arr[i] < arr[i + 1] ? arr[i] : arr[i + 1];
+
+
+            }
+
+            box.innerHTML = '最大值:' + max + '<br>' + '最小值:' + min;
+
+
+        }
+        //用户自定输入值要怎么做？
+        var arr = [1, 5, 6, 8, 9, 5, 100];
+        num(arr);
+    </script>
+</body>
+
+</html>

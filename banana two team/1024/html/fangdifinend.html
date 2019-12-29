@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="wrap" id="wrap">
+        <div class="biger">
+            <!-- 右边大图:放大的图 -->
+            <!-- <img src="" alt=""> -->
+        </div>
+        <div class="imgs">
+            <!-- 左边原图 -->
+            <div class="main">
+                <!-- <img src="" alt=""> -->
+                <!-- <div class="mask" "></div> -->
+            </div>
+            <div class="bottom">
+                <p class="prev">&lt;</p>
+                <div class="box">
+                    <ul class="smaller">
+                        <!-- 小图 -->
+                        <!-- <li><img src="" alt=""></li> -->
+                    </ul>
+
+                </div>
+                <p class="next">&gt;</p>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var arr = ["../images/banner1.jpg", "../images/banner2.jpg", "../images/banner3.jpg", "../images/banner4.jpg", "../images/banner5.jpg"];
+
+        var bigpic = document.querySelector('#wrap .biger');
+        var main = document.querySelector('#wrap .main');
+        var smaller = document.querySelector('#wrap .smaller');
+        //渲染中间图
+        var wrap = document.querySelector('#wrap');
+        var str = `<img src="${arr[0]}" alt=""><div class="mask"></div>`;
+        main.innerHTML = str;
+        //渲染大图
+        var str1 = `<img src="${arr[0]}" alt="">`;
+        bigpic.innerHTML = str1;
+
+        var str3 = arr.map(function (item) {
+            return `<li><img src="${item}" alt=""></li>`
+        }).join('');
+        //渲染小图
+        smaller.innerHTML = str3;
+
+        //添加移入事件使mask显示
+        var mask = main.children[1];//找到mask节点
+        main.onmouseover = function () {
+            // console.log(1);
+            mask.style.display = 'block';
+            //显示大图片
+            bigpic.style.display = 'block';
+
+        }
+        var bigmove = bigpic.children[0];//大图片
+        //显示后需要使mask的中心一直在鼠标中心；
+        main.onmousemove = function (ev) {
+            //右边的值
+            var left = ev.pageX - wrap.offsetLeft - mask.offsetWidth / 2;
+
+            //高度也是这么求
+            var top = ev.pageY - wrap.offsetTop - mask.offsetHeight / 2;
+
+
+            //限制边界距离
+            if (left <= 0) {
+                left = 0;
+            }
+            else if (left >= main.offsetWidth - mask.offsetWidth) {
+
+                left = main.offsetWidth - mask.offsetWidth;
+            }
+            //限定高度
+            if (top <= 0) {
+
+                top = 0;
+            }
+            else if (top >= main.offsetHeight - mask.offsetHeight) {
+
+                top = main.offsetHeight - mask.offsetHeight;
+            }
+            //打印 Y 和X
+            mask.style.top = top + 'px';
+            mask.style.left = left + 'px';
+            //移动计算比例，并且实现大图片跟小图片一起移动
+
+            var scal = left / (main.offsetWidth - mask.offsetWidth);
+            var Bleft = scal * (bigmove.offsetWidth - bigpic.offsetWidth);
+            bigmove.style.left = -Bleft + 'px';
+
+
+            //top也如此
+            var scal = top / (main.offsetHeight - mask.offsetHeight);
+            var Btop = scal * (bigmove.offsetHeight - bigpic.offsetHeight);
+            bigmove.style.top = -Btop + 'px';
+        }
+        //鼠标移除事件
+        main.onmouseout = function () {
+            bigpic.style.display = 'none';
+            mask.style.display = 'none';
+        }
+
+        //完成切图功能
+        var bottom = document.querySelector('.bottom');
+        var prev = bottom.children[0];//第一个
+        var box = bottom.children[1];
+        var next = bottom.children[2];
+        var ul = box.querySelector('.smaller');
+        var lists = ul.children;//集合
+
+        // console.log(lists);
+
+        //绑定点击事件切换大图小图;
+        for (var i = 0; i < lists.length; i++) {
+            lists[i].index = i;
+            // console.log(lists[i].index);
+            lists[i].onclick = function () {
+                var str = `<img src="${arr[this.index]}" alt=""><div class="mask"></div>`;
+                main.innerHTML = str;
+                var str1 = `<img src="${arr[this.index]}" alt="">`;
+                bigpic.innerHTML = str1;
+                // console.log(lists[this.index]);
+                main.onmouseover = function () {
+                    // console.log(1);
+                    mask.style.display = 'block';
+                    //显示大图片
+                    bigpic.style.display = 'block';
+
+                }
+                var bigmove = bigpic.children[0];//大图片
+                //显示后需要使mask的中心一直在鼠标中心；
+                main.onmousemove = function (ev) {
+                    //右边的值
+                    var left = ev.pageX - wrap.offsetLeft - mask.offsetWidth / 2;
+
+                    //高度也是这么求
+                    var top = ev.pageY - wrap.offsetTop - mask.offsetHeight / 2;
+
+
+                    //限制边界距离
+                    if (left <= 0) {
+                        left = 0;
+                    }
+                    else if (left >= main.offsetWidth - mask.offsetWidth) {
+
+                        left = main.offsetWidth - mask.offsetWidth;
+                    }
+                    //限定高度
+                    if (top <= 0) {
+
+                        top = 0;
+                    }
+                    else if (top >= main.offsetHeight - mask.offsetHeight) {
+
+                        top = main.offsetHeight - mask.offsetHeight;
+                    }
+                    //打印 Y 和X
+                    mask.style.top = top + 'px';
+                    mask.style.left = left + 'px';
+                    //移动计算比例，并且实现大图片跟小图片一起移动
+
+                    var scal = left / (main.offsetWidth - mask.offsetWidth);
+                    var Bleft = scal * (bigmove.offsetWidth - bigpic.offsetWidth);
+                    bigmove.style.left = -Bleft + 'px';
+
+
+                    //top也如此
+                    var scal = top / (main.offsetHeight - mask.offsetHeight);
+                    var Btop = scal * (bigmove.offsetHeight - bigpic.offsetHeight);
+                    bigmove.style.top = -Btop + 'px';
+                }
+                //鼠标移除事件
+                main.onmouseout = function () {
+                    bigpic.style.display = 'none';
+                    mask.style.display = 'none';
+                }
+            }
+        }
+        //给左右绑定点击事件
+        next.onclick = function () {
+            var prevl = -86;
+            ul.style.left = prevl + 'px';
+
+
+
+        }
+        prev.onclick = function () {
+            var nextl = 0;
+            ul.style.left = nextl + 'px';
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1.求两个数的最大数</title>
+</head>
+<body>
+    <input type="text" name="" id="vl1" style="float: left">
+    <p style="float: left">比较</p>
+    <input type="text" name="" id="vl2" style="float: left">
+    <input type="button" value="比较" id="but">
+    
+</body>
+<script>
+//1.求两个数的最大数；  if else
+//获取对象，这里有点疑惑
+var val1 = document.getElementById('vl1');
+var val2 = document.getElementById('vl2');
+var but = document.getElementById('but');
+//获取表单输入的值
+but.onclick = function(){
+    var val1 = vl1.value;
+    var val2 = vl2.value;
+
+//表单里面获取的值是字符串，需要转成数字。
+    if(parseInt(val1)>parseInt(val2)){
+       alert( val1 + "是最大值");
+    }
+    else{
+        alert(val2 + "是最大值");
+    }
+}
+
+</script>
+</html>

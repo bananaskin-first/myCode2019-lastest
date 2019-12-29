@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+        }
+
+        #box li {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin: 20px;
+            float: left;
+            position: relative;
+
+        }
+
+        #box li p {
+            width: 100%;
+            height: 100%;
+            background: rgb(104, 2, 2);
+            opacity: 0;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul id="box">
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+    </ul>
+
+    <script src="../js/myquery.js"></script>
+    <script>
+        let box = document.querySelector('#box');
+        //事件委托做法
+        box.onmouseover = (ev) => {
+            console.log(ev.target.tagName);
+
+            if (ev.target.tagName.toLowerCase() == 'p') {
+                startMove(ev.target, { opacity: 20 });
+            }
+
+        }
+
+        box.onmouseout = (ev) => {
+            if (ev.target.tagName.toLowerCase() == 'p') {
+                startMove(ev.target, { opacity: 0 });
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .con:nth-child(1) {
+            background: orange;
+        }
+
+        .con:nth-child(2) {
+            background: blue;
+        }
+
+        .con:nth-child(3) {
+            background: green;
+        }
+
+        #mea {
+            position: fixed;
+            top: 100px;
+            left: 30px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border: 1px solid;
+
+        }
+
+        .tab {
+            width: 50px;
+            height: 20px;
+            border: 1px solid orange;
+            background: gray;
+            text-align: center;
+            color: white;
+        }
+
+        .active {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="lou">
+            <li class="con"></li>
+            <li class="con"></li>
+            <li class="con"></li>
+        </ul>
+
+        <ul id="mea">
+            <li class="tab active">一楼</li>
+            <li class="tab">二楼</li>
+            <li class="tab">三楼</li>
+        </ul>
+    </div>
+    <script>
+        let box = document.querySelector('#box');
+        let cons = box.querySelectorAll('.con');
+        let tabs = box.querySelectorAll('.tab')
+        //给楼层设置高度
+        for (var i = 0; i < cons.length; i++) {
+            cons[i].style.height = window.innerHeight + 'px';
+        }
+
+        //点击跳转
+
+        var ih = window.innerHeight;
+
+        for (let k = 0; k < tabs.length; k++) {
+            tabs[k].onclick = () => {
+                window.scrollTo(0, ih * k);
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].className = 'tab';
+                }
+                tabs[k].className = ' tab active'
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

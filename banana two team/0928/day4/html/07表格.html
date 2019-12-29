@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 3px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>表格生成</h1>
+    <input type="text" name="" id="val1">
+    <input type="text" name="" id="val2">
+    <input type="button" name="" id="btn" value="生成">
+    <div id="box">
+
+    </div>
+
+    <script>
+        var tex = document.getElementById('val1');
+        var tex2 = document.getElementById('val2');
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        btn.onclick = function () {
+            var tex = val1.value;
+            var tex2 = val2.value;
+
+            var str = "<table>";
+            for (var i = 0; tex > i; i++) {
+                if (i % 2 == 0) {
+
+
+                    str += '<tr style ="background:pink;">';
+                }
+                else {
+                    str += '<tr style ="background:#58bc58;">';
+                }
+                for (var k = 0; tex2 > k; k++) {
+                    str += '<td>123</td>';
+
+
+                }
+                str += '<td><a href="">删除</a></td> '
+                str += '</tr>';
+
+            }
+            str += '</table>'
+            box.innerHTML = str;
+
+        }
+    </script>
+</body>
+
+</html>

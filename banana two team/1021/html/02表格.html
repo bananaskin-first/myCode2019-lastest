@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            margin: 30px;
+        }
+
+        table {
+            border: 1px solid black;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid green;
+            padding: 3px 5px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="row">行：</label><input type="text" name="" id="row">
+    <label for="col">列：</label><input type="text" name="" id="col">
+    <input type="button" name="" id="btn" value="生成表格">
+    <div id="box">
+        <table>
+            <!-- <tr>
+                <td>
+                    1
+                </td>
+
+
+            </tr> -->
+        </table>
+
+    </div>
+    <script>
+        var rowval = document.querySelector('#row');
+        var colval = document.querySelector('#col');
+        var box = document.querySelector('#box table');
+        var btn = document.querySelector('#btn');
+
+        //点击事件，读取row 和col里的值，然后在table生成数量相等的td tr；
+
+        btn.onclick = function () {
+            var rowNum = rowval.value.trim();
+            var colNum = colval.value.trim();
+            //循环生成tr
+            if (rowNum && colNum) {
+                for (var i = 0; i < rowNum; i++) {
+                    //创建后需要插入;
+                    var tr = box.insertRow(i);
+                    //在第一行插入
+                    var firstTd = tr.insertCell(0);//第一列
+                    firstTd.innerHTML = i;
+
+                    //插入列
+                    for (var j = 1; j < colNum; j++) {
+                        var td = tr.insertCell(j);
+                        td.innerHTML = '单元格';
+                    }
+                    var lastTd = tr.insertCell(j);
+                    lastTd.innerHTML = '<a class="dels" href="###">删除</a>&nbsp;&nbsp;<a class="clones" href="###">复制</a>';
+                }
+
+            }
+        }
+
+        var dels = document.querySelectorAll('#box .dels');
+        var clones = document.querySelectorAll('#box .clones');
+        var tbody = document.querySelector('#box tbody');
+
+        for (var i = 0; i < dels.length; i++) {
+            dels[i].onclick = function () {
+            
+                var iso = confirm('删？');
+                if (iso) {
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

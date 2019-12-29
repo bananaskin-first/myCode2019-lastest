@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        #box {
+            width: 50px;
+            height: 400px;
+            background: rgb(197, 194, 194);
+            margin: 100px;
+            position: relative;
+        }
+
+        #bar {
+            width: 50px;
+            height: 50px;
+            background: green;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #move {
+            width: 50px;
+            height: 50px;
+            background: rgb(105, 3, 109);
+            position: fixed;
+            left: 300px;
+            top: 0px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="box">
+        <div id="bar">
+
+        </div>
+
+    </div>
+    <div id="move">
+
+    </div>
+
+
+    <script>
+        //获取节点
+        function scrollBar(outer, inner, fn) {
+            var box = document.querySelector(outer);
+            var bar = document.querySelector(inner);
+
+            //添加鼠标点事件读取相对位置
+            bar.onmousedown = function (ev) {
+                //光标到盒子的距离
+                var barY = ev.offsetY;
+
+                document.onmousemove = function (ev) {
+                    //
+                    var top = ev.pageY - box.offsetTop - barY;
+
+
+                    if (top <= 10) {
+                        top = 0;
+
+                    }
+                    else if (top >= (box.offsetHeight - bar.offsetHeight)) {
+                        top = box.offsetHeight - bar.offsetHeight;
+
+                    }
+                    bar.style.top = top + 'px';
+
+                    //计算比例
+                    var scal = top / (box.offsetHeight - bar.offsetHeight)
+                    // console.log(scal);
+                    fn(scal);
+                }
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+        }
+        scrollBar('#box', '#bar', function (scal) {
+            var move = document.querySelector('#move');
+        move.style.top = 500 * scal + 'px';
+        })
+
+
+    </script>
+</body>
+
+</html>

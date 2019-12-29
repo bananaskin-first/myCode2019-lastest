@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="" id="tex">
+    <input type="button" name="" id="btn" value="计算">
+    <div id="box">
+
+    </div>
+    <script>
+        // 1.封装一个函数factorial，实现任意数字阶乘的计算
+        var tex = document.getElementById('tex');
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        var sum = 1;
+        function factorial(b) {
+
+            for (var i = 1; i <= b; i++) {
+                sum *= i;
+
+
+
+            }
+            return sum;
+        }
+
+        btn.onclick = function () {
+            var b = tex.value;
+
+            factorial(b);
+
+            alert('结果是:' + sum);
+            return 0;
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

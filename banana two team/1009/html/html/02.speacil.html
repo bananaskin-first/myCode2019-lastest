@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        //2.splice()方法实现：push()/pop()/unshift()/shift()
+
+        var arr = [12, 2, 3, 23];
+        console.log(arr);
+        //unshift()
+        arr.splice(0, 0, 100);
+        console.log(arr);
+        //shift
+        arr.splice(0, 1);
+        console.log(arr);
+        //pop();
+        arr.splice(arr.length - 1, 1);
+        console.log(arr);
+        //push()
+        arr.splice(arr.length, 0, 400);
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

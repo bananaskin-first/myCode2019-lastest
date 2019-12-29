@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>水仙花数</h1>
+    <div id="box">
+
+    </div>
+    <script>
+        var box = document.getElementById('box');
+      var ge ,shi ,bai;
+      var sum= " ";
+    for(i=100; i<=999 ;i++){
+        ge = i %10;
+        shi = parseInt(i%100/10);
+        bai = parseInt(i/100);
+
+        if(ge == ge*ge*ge*1 && shi == shi*shi*shi*1 && bai == bai*bai*bai*1  ){
+            // console.log(i)
+            console.log(i);
+        if(i== ge*ge*ge + bai *bai *bai +shi *shi *shi){
+            // console.log(i);
+        }
+        
+        }
+      
+         
+    }
+
+    </script>
+
+</body>
+</html>

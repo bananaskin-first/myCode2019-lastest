@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+        }
+
+        #box li {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            margin: 20px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box li p {
+            width: 100%;
+            height: 40px;
+            background: green;
+            position: absolute;
+            bottom: -40px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul id="box">
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+    </ul>
+
+    <script src="../js/myquery.js"></script>
+    <script>
+        let box = document.querySelector('#box');
+        let lis = box.querySelectorAll('li');
+        let list = box.querySelectorAll('li p');
+        // console.log(list);
+
+        //移入绑定事件  传统做法
+        for (let i = 0; i < list.length; i++) {
+            lis[i].onmouseover = () => {
+                // console.log(i);
+                startMove(list[i], { bottom: 0 });
+            }
+            lis[i].onmouseout = () => {
+                // console.log(i);
+                startMove(list[i], { bottom: -40 });
+            }
+
+        }
+        //事件委托做法
+        
+
+
+    </script>
+</body>
+
+</html>

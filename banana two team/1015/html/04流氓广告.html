@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid;
+            font-size: 40px;
+            text-align: center;
+            line-height: 200px;
+            margin: 200px auto;
+            background: green;
+
+
+        }
+
+        #btn {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+        <input type="button" name="" id="btn" value="x">
+        <span id="sp">
+
+        </span>
+
+    </div>
+
+    <script>
+        var box = document.getElementById('box');
+        var btn = document.getElementById('btn');
+        var sp = document.getElementById('sp');
+
+        var i = 6;
+        //设置函数
+        function tim() {
+            box.style.display = 'block';
+            i--;
+            sp.innerHTML = '还有' + i + '秒关闭';
+            if (i < 0) {
+                box.style.display = 'none';
+                clearInterval(timer);//关闭定时器
+                //无线循环
+                setTimeout(function () {
+                    i = 6;
+                    timer = setInterval(tim, 1000);
+                }, 3000)
+            }
+        }
+        //调用定时器
+        var timer = tim();
+        timer = setInterval(tim, 1000);
+
+        btn.onclick = function () {
+            box.style.display = 'none';
+            clearInterval(timer);//关闭定时器
+            setTimeout(function () {
+                i = 6;
+                timer = setInterval(tim, 1000);
+            }, 3000)
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

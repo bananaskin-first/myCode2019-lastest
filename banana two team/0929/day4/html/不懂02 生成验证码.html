@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input type="button" name="" id="btn" value="生成">
+    <div id="box"></div>
+
+
+    <script>
+
+        // 2.编写生成4位数字验证码的函数，并显示在页面，点击重新生成验证码
+
+        //调用ID
+
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+        function shu() {
+            var sun = parseInt(Math.random() * (9999 - 1000)) + 1000;
+            //不加1会怎么样
+            box.innerHTML = sun;
+        }
+
+        btn.onclick = function () {
+
+            shu();
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
